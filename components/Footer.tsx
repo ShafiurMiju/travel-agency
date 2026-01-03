@@ -58,7 +58,7 @@ const Footer = () => {
                   Tripbirds Travels
                 </span>
                 <span className="text-sm text-gray-400 -mt-1">
-                  Your Journey Partner
+                  A Trusted Travel Solution Center
                 </span>
               </div>
             </Link>

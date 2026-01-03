@@ -37,10 +37,10 @@ const Navbar = () => {
       label: "Visa Services", 
       href: "/visa-services",
       submenu: [
+        { label: "Tourist Visa", href: "/visa-services/tour" },
         { label: "Business Visa", href: "/visa-services/business" },
         { label: "Medical Visa", href: "/visa-services/medical" },
         { label: "Student Visa", href: "/visa-services/student" },
-        { label: "Tour Visa", href: "/visa-services/tour" },
       ]
     },
     { label: "Visa Info", href: "/visa-information" },
@@ -86,7 +86,7 @@ const Navbar = () => {
               <span className={`text-xs -mt-1 transition-colors ${
                 isScrolled ? "text-gray-600" : "text-white/90"
               }`}>
-                Your Journey Partner
+                A Trusted Travel Solution Center
               </span>
             </div>
           </Link>
@@ -195,7 +195,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       <p className="font-bold text-white text-sm">Tripbirds Travels</p>
-                      <p className="text-[10px] text-primary-100 -mt-0.5">Your Journey Partner</p>
+                      <p className="text-[10px] text-primary-100 -mt-0.5">A Trusted Travel Solution Center</p>
                     </div>
                   </div>
                   <button
