@@ -155,9 +155,11 @@ export default function Contact() {
                       Address
                     </h3>
                     <p className="text-gray-600">
-                      Ta-114, Day Night Shiraj Tower
+                      Confidence Center (Building-2)
                       <br />
-                      Gulshan Badda Link Road
+                      House# Kha-9, Flat# 15-E (Lift-15)
+                      <br />
+                      Shahjadpur, Gulshan-2
                       <br />
                       Dhaka-1212, Bangladesh
                     </p>
@@ -397,7 +399,7 @@ export default function Contact() {
 
           <div className="rounded-2xl overflow-hidden shadow-lg h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.6447287857945!2d90.42146857531852!3d23.780511887819854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c790d4a860c7%3A0xe81497bf1525fe63!2sDay%20Night%20Shiraj%20Tower%2C%20Dhaka%201212!5e0!3m2!1sen!2sbd!4v1735857000000!5m2!1sen!2sbd"
+              src="https://www.google.com/maps?q=Confidence%20Center%2C%20House%20Kha-9%2C%20Shahjadpur%2C%20Gulshan-2%2C%20Dhaka-1212%2C%20Bangladesh&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

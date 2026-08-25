@@ -4,38 +4,23 @@ import { Search, Globe, FileText, Clock, DollarSign } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Visa Information | Complete Guide for All Countries | Tripbirds Travels",
-  description: "Comprehensive visa information for 150+ countries. Find visa requirements, processing times, fees, and application procedures for your destination."
+  description: "Comprehensive visa information for our top destination countries. Find visa requirements, processing times, fees, and application procedures for your destination."
 };
 
 export default function VisaInformationPage() {
   const countries = [
-    { name: "United States", code: "us", continent: "North America", processing: "15-30 days", fee: "$160", visaRequired: true },
-    { name: "United Kingdom", code: "gb", continent: "Europe", processing: "10-21 days", fee: "£100", visaRequired: true },
-    { name: "Canada", code: "ca", continent: "North America", processing: "20-30 days", fee: "CAD $100", visaRequired: true },
-    { name: "Australia", code: "au", continent: "Oceania", processing: "15-25 days", fee: "AUD $145", visaRequired: true },
-    { name: "Germany", code: "de", continent: "Europe", processing: "10-15 days", fee: "€80", visaRequired: true },
-    { name: "France", code: "fr", continent: "Europe", processing: "10-15 days", fee: "€80", visaRequired: true },
-    { name: "UAE", code: "ae", continent: "Asia", processing: "3-5 days", fee: "AED 350", visaRequired: true },
+    { name: "China", code: "cn", continent: "Asia", processing: "10+ working days", fee: "Contact for fee", visaRequired: true },
+    { name: "Hong Kong", code: "hk", continent: "Asia", processing: "7-14 days", fee: "HKD $230", visaRequired: true },
+    { name: "Thailand", code: "th", continent: "Asia", processing: "5-10 days", fee: "THB 2,000", visaRequired: true },
     { name: "Singapore", code: "sg", continent: "Asia", processing: "5-7 days", fee: "SGD $30", visaRequired: true },
-    { name: "Japan", code: "jp", continent: "Asia", processing: "7-10 days", fee: "¥3,000", visaRequired: true },
-    { name: "South Korea", code: "kr", continent: "Asia", processing: "5-10 days", fee: "$40", visaRequired: true },
-    { name: "Switzerland", code: "ch", continent: "Europe", processing: "10-15 days", fee: "CHF 80", visaRequired: true },
-    { name: "Netherlands", code: "nl", continent: "Europe", processing: "10-15 days", fee: "€80", visaRequired: true },
-    { name: "Italy", code: "it", continent: "Europe", processing: "10-15 days", fee: "€80", visaRequired: true },
-    { name: "Spain", code: "es", continent: "Europe", processing: "10-15 days", fee: "€80", visaRequired: true },
-    { name: "New Zealand", code: "nz", continent: "Oceania", processing: "20-30 days", fee: "NZD $211", visaRequired: true },
-    { name: "China", code: "cn", continent: "Asia", processing: "4-7 days", fee: "$140", visaRequired: true },
-    { name: "Thailand", code: "th", continent: "Asia", processing: "3-5 days", fee: "$40", visaRequired: true },
-    { name: "Malaysia", code: "my", continent: "Asia", processing: "5-7 days", fee: "$25", visaRequired: false },
-    { name: "Turkey", code: "tr", continent: "Asia/Europe", processing: "1-3 days", fee: "$50", visaRequired: true },
-    { name: "Brazil", code: "br", continent: "South America", processing: "5-15 days", fee: "$160", visaRequired: true },
+    { name: "Malaysia", code: "my", continent: "Asia", processing: "5-7 days", fee: "MYR 100", visaRequired: true },
+    { name: "Philippines", code: "ph", continent: "Asia", processing: "7-15 days", fee: "$40", visaRequired: true },
     { name: "India", code: "in", continent: "Asia", processing: "3-5 days", fee: "$25", visaRequired: true },
-    { name: "Saudi Arabia", code: "sa", continent: "Asia", processing: "2-5 days", fee: "$120", visaRequired: true },
-    { name: "Qatar", code: "qa", continent: "Asia", processing: "3-5 days", fee: "$30", visaRequired: true },
-    { name: "South Africa", code: "za", continent: "Africa", processing: "10-20 days", fee: "$100", visaRequired: true },
+    { name: "Indonesia", code: "id", continent: "Asia", processing: "5-7 days", fee: "$50", visaRequired: true },
+    { name: "Egypt", code: "eg", continent: "Africa", processing: "7-15 days", fee: "$25", visaRequired: true },
   ];
 
-  const continents = ["All", "Asia", "Europe", "North America", "South America", "Oceania", "Africa"];
+  const continents = ["All", "Asia", "Africa"];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -58,7 +43,7 @@ export default function VisaInformationPage() {
             Visa Information Directory
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in animation-delay-100">
-            Complete visa requirements and processing information for 150+ countries worldwide
+            Complete visa requirements and processing information for our most requested destinations
           </p>
         </div>
       </section>
