@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import {
   Briefcase,
   Palmtree,
-  GraduationCap,
   Heart,
   FileText,
-  Clock,
   CheckCircle,
   Users,
   Shield,
@@ -14,9 +12,9 @@ import CountryCard from "@/components/CountryCard";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Visa Services - Business & Tourist Visa Processing",
+  title: "Visa Services - Tourist, Business & Medical Visa Processing",
   description:
-    "Professional visa processing services for business, tourist, student, and other visa types. Expert assistance for visa applications to any country.",
+    "Tourist, business, medical and transit visa processing from Bangladesh for China, India, Thailand, Malaysia, Singapore, Hong Kong, Japan, Indonesia, Philippines and Egypt.",
 };
 
 export default function VisaServices() {
@@ -112,8 +110,8 @@ export default function VisaServices() {
             Visa Services
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Expert visa processing for business, tourist, and other travel purposes
-            to any country in the world.
+            Tourist, business and medical visa processing from Bangladesh, handled
+            end to end by a Government approved travel agency.
           </p>
         </div>
       </section>
@@ -143,7 +141,7 @@ export default function VisaServices() {
                 Business Visa
               </h3>
               <p className="text-gray-600 mb-4">
-                For business meetings, conferences, and corporate travel.
+                For meetings, trade fairs such as the Canton Fair, and corporate travel.
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start">
@@ -186,7 +184,7 @@ export default function VisaServices() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>All countries supported</span>
+                  <span>Family and group packages</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -199,33 +197,36 @@ export default function VisaServices() {
               </ul>
             </div>
 
-            {/* Student Visa */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
+            {/* Medical Visa */}
+            <div
+              id="medical"
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2"
+            >
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                <GraduationCap className="h-8 w-8 text-white" />
+                <Heart className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                Student Visa
+                Medical Visa
               </h3>
               <p className="text-gray-600 mb-4">
-                For studying abroad and educational programs.
+                For treatment abroad - available for China, India and Thailand.
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>University admission support</span>
+                  <span>Hospital appointment letter support</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Financial documentation</span>
+                  <span>Attendant visa for one companion</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Pre-departure guidance</span>
+                  <span>Priority handling where available</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Post-arrival support</span>
+                  <span>Treatment schedule matched validity</span>
                 </li>
               </ul>
             </div>
@@ -239,24 +240,24 @@ export default function VisaServices() {
                 Other Visas
               </h3>
               <p className="text-gray-600 mb-4">
-                Work permits, transit visas, and specialized visa types.
+                Umrah and transit visas, family visits and other categories.
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Work visa processing</span>
+                  <span>Umrah and transit visas (Egypt)</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Transit visa assistance</span>
+                  <span>Visiting relatives or friends (Japan)</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Dependent visa support</span>
+                  <span>Letter of Introduction visas (Singapore)</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-500 mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Customized solutions</span>
+                  <span>Customised solutions on request</span>
                 </li>
               </ul>
             </div>
@@ -340,7 +341,8 @@ export default function VisaServices() {
               Countries We Cover
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Process visas for over 150 countries worldwide
+              Ten destinations we process from Dhaka - click any country for its
+              documents, cost and processing time
             </p>
           </div>
 
@@ -355,7 +357,8 @@ export default function VisaServices() {
               Don&apos;t see your destination country listed?
             </p>
             <p className="text-gray-600 mb-6">
-              We process visas for all countries. Contact us for personalized assistance.
+              Tell us where you are heading and we will confirm whether we can
+              process it and what it will cost.
             </p>
             <a
               href="/contact"
@@ -386,12 +389,12 @@ export default function VisaServices() {
               </h3>
               <ul className="space-y-3">
                 {[
-                  "Valid passport (minimum 6 months validity)",
-                  "Completed visa application form",
-                  "Recent passport-size photographs",
-                  "Proof of travel booking",
-                  "Travel insurance",
-                  "Financial statements",
+                  "All passports - current and previous, with all visa and seal pages",
+                  "Bank solvency certificate and bank statement of the last 6 months",
+                  "Recent photograph (35 x 45 or 35 x 50, white background)",
+                  "TIN copy and updated tax return certificate",
+                  "NID or birth certificate copy",
+                  "Personal information form and visiting card",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-accent-500 mr-3 flex-shrink-0 mt-0.5" />
@@ -407,12 +410,12 @@ export default function VisaServices() {
               </h3>
               <ul className="space-y-3">
                 {[
-                  "Letter of invitation (if applicable)",
-                  "Hotel booking confirmation",
-                  "Employment letter or proof of business",
-                  "Income tax returns",
-                  "Purpose of visit documentation",
-                  "Previous visa copies (if any)",
+                  "Updated trade license with English notary, company pad and visiting card (business person)",
+                  "NOC, salary certificate or payslip and office ID (job holder)",
+                  "Student ID card copy (student)",
+                  "Marriage certificate and nikahnama with English notary (husband and wife)",
+                  "Confirmed air ticket and hotel booking",
+                  "Hospital appointment letter (medical visa applicants)",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
@@ -425,7 +428,9 @@ export default function VisaServices() {
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 text-lg">
-              <strong>Note:</strong> Requirements vary by country and visa type. Our team will provide a detailed checklist for your specific application.
+              <strong>Note:</strong> Minimum bank balance and photo size differ by
+              country - Hong Kong asks for 5,00,000 Taka while Malaysia asks for
+              1,00,000. Open any country above for its exact checklist.
             </p>
           </div>
         </div>

@@ -176,11 +176,9 @@ export default function Contact() {
                       Office Hours
                     </h3>
                     <p className="text-gray-600">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      Saturday - Thursday: 10:00 AM - 8:00 PM
                       <br />
-                      Saturday: 10:00 AM - 4:00 PM
-                      <br />
-                      Sunday: Closed
+                      Friday: Closed
                     </p>
                   </div>
                 </div>

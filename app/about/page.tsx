@@ -81,9 +81,9 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-6">
               {[
-                { icon: Users, value: "50,000+", label: "Happy Clients" },
-                { icon: Globe, value: "150+", label: "Countries" },
-                { icon: Award, value: "98%", label: "Success Rate" },
+                { icon: Users, value: "10,000+", label: "Happy Clients" },
+                { icon: Globe, value: "20+", label: "Countries" },
+                { icon: Award, value: "99%", label: "Success Rate" },
                 { icon: Clock, value: "15+", label: "Years Experience" },
               ].map((stat, index) => (
                 <div
@@ -269,7 +269,7 @@ export default function About() {
               {
                 title: "Proven Track Record",
                 description:
-                  "98% visa approval rate and thousands of satisfied customers across the globe.",
+                  "99% visa approval rate and thousands of satisfied customers across the globe.",
               },
               {
                 title: "Personalized Service",

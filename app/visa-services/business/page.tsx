@@ -65,7 +65,7 @@ export default function BusinessVisaPage() {
             <div className="bg-blue-50 p-8 rounded-xl">
               <CheckCircle className="h-12 w-12 text-blue-600 mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">High Success Rate</h3>
-              <p className="text-gray-600">98% approval rate for business visa applications through our services</p>
+              <p className="text-gray-600">99% approval rate for business visa applications through our services</p>
             </div>
           </div>
         </div>

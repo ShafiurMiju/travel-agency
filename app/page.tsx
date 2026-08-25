@@ -101,33 +101,33 @@ export default function Home() {
 
   // Stats data
   const stats = [
-    { icon: Users, value: "50,000+", label: "Happy Clients" },
-    { icon: Globe, value: "150+", label: "Countries Covered" },
-    { icon: Award, value: "98%", label: "Success Rate" },
+    { icon: Users, value: "10,000+", label: "Happy Clients" },
+    { icon: Globe, value: "20+", label: "Countries Covered" },
+    { icon: Award, value: "99%", label: "Success Rate" },
     { icon: Clock, value: "24/7", label: "Support Available" },
   ];
 
   // Testimonials data
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Business Owner",
+      name: "Rashedul Islam",
+      role: "Garments Exporter, Dhaka",
       content:
-        "Excellent service! They helped me get my business visa to the US within 3 weeks. Professional and reliable.",
+        "Got my China business visa for the Canton Fair without any hassle. They prepared the whole file and guided me before the interview.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Travel Enthusiast",
+      name: "Nusrat Jahan",
+      role: "Homemaker, Gulshan",
       content:
-        "Made my family vacation planning so easy. From visa to flight tickets and hotels, everything was perfectly arranged.",
+        "We applied for Thailand tourist visa for our family of four. All the visas came together and the whole process was very smooth.",
       rating: 5,
     },
     {
-      name: "Priya Patel",
-      role: "Corporate Executive",
+      name: "Mizanur Rahman",
+      role: "Businessman, Chattogram",
       content:
-        "Fast, efficient, and trustworthy. They handle all our company's business visa requirements. Highly recommended!",
+        "Took my mother to India for treatment. Both the medical visa and my attendant visa were done on time. Truly grateful to the team.",
       rating: 5,
     },
   ];
@@ -348,7 +348,7 @@ export default function Home() {
               },
               {
                 icon: Award,
-                title: "98% Success Rate",
+                title: "99% Success Rate",
                 description:
                   "Our experienced team ensures the highest approval rates in the industry.",
               },
@@ -398,7 +398,7 @@ export default function Home() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real experiences from satisfied travelers
+              Real experiences from 50+ satisfied travellers across Bangladesh
             </p>
           </div>
 
