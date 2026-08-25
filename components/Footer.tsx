@@ -29,12 +29,12 @@ const Footer = () => {
   ];
 
   const popularCountries = [
-    "USA",
-    "UK",
-    "Canada",
-    "Australia",
-    "Schengen",
-    "Dubai",
+    "China",
+    "India",
+    "Malaysia",
+    "Thailand",
+    "Singapore",
+    "Japan",
   ];
 
   return (
@@ -160,10 +160,10 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:infotripbirds@gmail.com"
+                  href="mailto:ask.tripbirds@gmail.com"
                   className="text-sm hover:text-primary-400 transition-colors"
                 >
-                  infotripbirds@gmail.com
+                  ask.tripbirds@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-3">

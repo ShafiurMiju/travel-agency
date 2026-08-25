@@ -1,377 +1,79 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle, Clock, FileText, DollarSign, AlertCircle, Phone, MessageCircle } from "lucide-react";
+import { CheckCircle, Clock, FileText, DollarSign, AlertCircle, Phone, MessageCircle } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 // Country data
 const countryData: Record<string, any> = {
-  us: {
-    name: "United States",
-    code: "US",
-    image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Business Visa (B-1)",
-        description: "For business meetings, conferences, and negotiations",
-        processingTime: "15-30 days",
-        validity: "Up to 10 years",
-        fee: "$160"
-      },
-      {
-        type: "Tourist Visa (B-2)",
-        description: "For tourism, vacation, and visiting family",
-        processingTime: "15-30 days",
-        validity: "Up to 10 years",
-        fee: "$160"
-      },
-      {
-        type: "Student Visa (F-1)",
-        description: "For academic studies at accredited institutions",
-        processingTime: "20-45 days",
-        validity: "Duration of studies",
-        fee: "$160"
-      }
-    ],
-    requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed DS-160 form",
-      "Passport-sized photographs (2 copies)",
-      "Visa application fee payment receipt",
-      "Interview appointment confirmation",
-      "Proof of financial capability",
-      "Travel itinerary",
-      "Employment letter or business documents",
-      "Bank statements (last 6 months)",
-      "Property documents (if applicable)"
-    ],
-    process: [
-      "Fill out DS-160 application form online",
-      "Pay the visa application fee",
-      "Schedule visa interview appointment",
-      "Prepare required documents",
-      "Attend visa interview at embassy",
-      "Wait for visa processing",
-      "Collect passport with visa"
-    ],
-    additionalInfo: [
-      "Visa interview is mandatory for most applicants",
-      "Biometric data (fingerprints) will be collected",
-      "Processing time may vary based on embassy workload",
-      "Premium processing not available for US visas"
-    ]
-  },
-  gb: {
-    name: "United Kingdom",
-    code: "GB",
-    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Business Visitor Visa",
-        description: "For business meetings and conferences",
-        processingTime: "10-21 days",
-        validity: "Up to 6 months",
-        fee: "£100"
-      },
-      {
-        type: "Standard Visitor Visa",
-        description: "For tourism and visiting family",
-        processingTime: "10-21 days",
-        validity: "Up to 6 months",
-        fee: "£100"
-      },
-      {
-        type: "Student Visa",
-        description: "For studying at UK educational institutions",
-        processingTime: "15-30 days",
-        validity: "Duration of course",
-        fee: "£363"
-      }
-    ],
-    requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Online visa application form",
-      "Passport-sized photographs",
-      "Proof of accommodation in UK",
-      "Travel itinerary",
-      "Bank statements (last 3 months)",
-      "Employment letter",
-      "Proof of funds",
-      "Travel insurance",
-      "Return flight tickets"
-    ],
-    process: [
-      "Complete online application form",
-      "Pay visa fee and health surcharge",
-      "Book biometric appointment",
-      "Attend biometric appointment",
-      "Submit documents",
-      "Wait for decision",
-      "Collect visa"
-    ],
-    additionalInfo: [
-      "Biometric data collection is mandatory",
-      "Priority service available for faster processing",
-      "Multiple entry visas available",
-      "Health surcharge may apply"
-    ]
-  },
-  ca: {
-    name: "Canada",
-    code: "CA",
-    image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Visitor Visa",
-        description: "For tourism and visiting family",
-        processingTime: "20-30 days",
-        validity: "Up to 10 years",
-        fee: "CAD $100"
-      },
-      {
-        type: "Business Visa",
-        description: "For business activities",
-        processingTime: "20-30 days",
-        validity: "Up to 10 years",
-        fee: "CAD $100"
-      },
-      {
-        type: "Work Permit",
-        description: "For employment in Canada",
-        processingTime: "30-60 days",
-        validity: "As per job offer",
-        fee: "CAD $155"
-      },
-      {
-        type: "Student Permit",
-        description: "For studying in Canada",
-        processingTime: "30-45 days",
-        validity: "Duration of studies",
-        fee: "CAD $150"
-      }
-    ],
-    requirements: [
-      "Valid passport",
-      "Completed application form (IMM 5257)",
-      "Passport photographs",
-      "Proof of financial support",
-      "Travel itinerary",
-      "Letter of invitation (if applicable)",
-      "Employment letter",
-      "Bank statements",
-      "Purpose of visit letter",
-      "Biometric fee payment"
-    ],
-    process: [
-      "Complete online or paper application",
-      "Pay application and biometric fees",
-      "Submit biometrics",
-      "Provide supporting documents",
-      "Wait for processing",
-      "Submit passport if approved",
-      "Receive visa"
-    ],
-    additionalInfo: [
-      "Biometrics valid for 10 years",
-      "eTA required for visa-exempt countries",
-      "Medical exam may be required",
-      "Police certificate might be needed"
-    ]
-  },
-  au: {
-    name: "Australia",
-    code: "AU",
-    image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Visitor Visa (subclass 600)",
-        description: "For tourism and visiting family",
-        processingTime: "15-25 days",
-        validity: "Up to 12 months",
-        fee: "AUD $145"
-      },
-      {
-        type: "Business Visitor Visa",
-        description: "For business activities",
-        processingTime: "15-25 days",
-        validity: "Up to 3 months",
-        fee: "AUD $145"
-      },
-      {
-        type: "Work Visa",
-        description: "For temporary work",
-        processingTime: "30-60 days",
-        validity: "Up to 4 years",
-        fee: "AUD $310"
-      }
-    ],
-    requirements: [
-      "Valid passport",
-      "Completed ImmiAccount application",
-      "Passport photographs",
-      "Financial evidence",
-      "Health insurance",
-      "Character documents",
-      "Purpose of visit statement",
-      "Sponsorship letter (if applicable)",
-      "Bank statements",
-      "Employment documents"
-    ],
-    process: [
-      "Create ImmiAccount",
-      "Complete online application",
-      "Upload documents",
-      "Pay visa fee",
-      "Health examination (if required)",
-      "Wait for decision",
-      "Receive visa grant notification"
-    ],
-    additionalInfo: [
-      "Visa granted electronically",
-      "Health examination may be required",
-      "Travel restrictions may apply",
-      "Multiple entry allowed"
-    ]
-  },
-  de: {
-    name: "Germany",
-    code: "DE",
-    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Schengen Visa",
-        description: "For tourism, business, and family visits",
-        processingTime: "10-15 days",
-        validity: "Up to 90 days",
-        fee: "€80"
-      },
-      {
-        type: "Business Visa",
-        description: "For business meetings and conferences",
-        processingTime: "10-15 days",
-        validity: "Up to 90 days",
-        fee: "€80"
-      }
-    ],
-    requirements: [
-      "Valid passport (minimum 3 months beyond stay)",
-      "Schengen visa application form",
-      "Passport photographs (2 copies)",
-      "Travel insurance (minimum €30,000 coverage)",
-      "Flight reservations",
-      "Hotel bookings",
-      "Bank statements (last 3 months)",
-      "Employment letter",
-      "Cover letter explaining purpose",
-      "Visa fee payment"
-    ],
-    process: [
-      "Complete application form",
-      "Book visa appointment",
-      "Prepare documents",
-      "Attend appointment at consulate",
-      "Submit biometrics",
-      "Pay visa fee",
-      "Wait for processing",
-      "Collect passport"
-    ],
-    additionalInfo: [
-      "Valid for all Schengen countries",
-      "Travel insurance is mandatory",
-      "Personal appearance required",
-      "Processing time: 10-15 working days"
-    ]
-  },
-  ae: {
-    name: "UAE",
-    code: "AE",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=400&fit=crop",
-    visaTypes: [
-      {
-        type: "Tourist Visa",
-        description: "For tourism and leisure",
-        processingTime: "3-5 days",
-        validity: "30-90 days",
-        fee: "AED 350"
-      },
-      {
-        type: "Business Visa",
-        description: "For business meetings",
-        processingTime: "3-5 days",
-        validity: "30-90 days",
-        fee: "AED 450"
-      }
-    ],
-    requirements: [
-      "Valid passport (minimum 6 months)",
-      "Passport copy",
-      "Passport photographs",
-      "Confirmed flight tickets",
-      "Hotel reservation",
-      "Sponsor letter (if applicable)",
-      "Bank statements",
-      "Travel insurance",
-      "Visa application form"
-    ],
-    process: [
-      "Submit application online",
-      "Upload required documents",
-      "Pay visa fee",
-      "Wait for processing",
-      "Receive visa via email",
-      "Print visa for travel"
-    ],
-    additionalInfo: [
-      "E-visa available",
-      "Fast processing (3-5 days)",
-      "No interview required",
-      "Multiple entry visas available"
-    ]
-  },
   sg: {
     name: "Singapore",
     code: "SG",
     image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "Tourist Visa",
-        description: "For tourism and leisure",
-        processingTime: "5-7 days",
-        validity: "30 days",
-        fee: "SGD $30"
+        type: "Visit Visa (Form 14A)",
+        description: "For tourism and visiting family or friends in Singapore",
+        processingTime: "7+ working days",
+        validity: "Up to 30 days stay",
+        fee: "About BDT 2,900 + agent"
       },
       {
-        type: "Business Visa",
-        description: "For business activities",
-        processingTime: "5-7 days",
-        validity: "30 days",
-        fee: "SGD $30"
+        type: "Visit Visa with Letter of Introduction",
+        description: "Supported by a Singapore based sponsor or company",
+        processingTime: "7+ working days",
+        validity: "Up to 30 days stay",
+        fee: "About BDT 2,900 + agent"
       }
     ],
+    pricing: {
+      title: "Singapore Visa Cost from Bangladesh",
+      note: "The High Commission charges about BDT 2,900 per applicant, but applications must be lodged through an authorised visa agent in Dhaka, so the agent charge is added on top.",
+      groups: [
+        {
+          title: "Visit Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Visit Visa (Form 14A)", "High Commission fee + authorised agent filing", "BDT 4,300 - 5,150"],
+            ["Visit Visa with Letter of Introduction", "High Commission fee + authorised agent filing", "BDT 4,300 - 5,150"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Taka amounts are based on the August 2026 exchange rate and can change - please confirm today's rate with us before you pay.",
+        "You cannot apply directly at the High Commission - Singapore only accepts applications through its authorised agents in Dhaka.",
+        "The visa fee is non-refundable even if the application is refused.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate.",
+        "Fees are revised from time to time, so please confirm with us before you pay."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months)",
-      "Completed visa application form (Form 14A)",
-      "Passport photographs",
-      "Flight itinerary",
-      "Hotel bookings",
-      "Bank statements",
-      "Employment letter",
-      "Cover letter",
-      "Local contact information"
+      "All passports",
+      "Bank solvency certificate and bank statement of the last 6 months, with a last balance of minimum 2,00,000 Taka (per person)",
+      "Recent 2 copy photo (35 x 45 size, mat paper print)",
+      "Updated trade license (with English notary), pad and visiting card (business person)",
+      "NOC, salary certificate or payslip and office ID card (job holder)",
+      "Bar council certificate and professional ID card (advocate)",
+      "Marriage certificate and nikahnama with English notary (husband and wife)",
+      "TIN copy and updated tax return certificate copy",
+      "Student ID card copy (student)",
+      "NID or birth certificate"
     ],
     process: [
-      "Complete Form 14A",
-      "Gather supporting documents",
-      "Submit through authorized agent",
-      "Pay visa fee",
-      "Wait for processing",
-      "Receive visa approval",
-      "Print e-visa"
+      "Free consultation - we confirm your documents and timeline",
+      "We complete Form 14A and prepare your file",
+      "We lodge the application through an authorised agent in Dhaka",
+      "The High Commission assesses the application",
+      "We receive the outcome and inform you straight away",
+      "Collect your passport with the visa sticker",
+      "Carry your hotel booking and return ticket for immigration in Singapore"
     ],
     additionalInfo: [
-      "E-visa available online",
-      "Processing: 5-7 working days",
-      "Single/multiple entry options",
-      "Extension possible in Singapore"
+      "If a passport has been lost, a GD copy with English notarisation must be provided",
+      "Ordinary Bangladeshi passport holders must have a visa before arrival in Singapore",
+      "A Letter of Introduction from a Singapore resident or company strengthens the application",
+      "Processing takes 7+ working days from the day after submission",
+      "Singapore immigration may still ask for proof of funds and onward travel at the airport"
     ]
   },
   jp: {
@@ -380,45 +82,67 @@ const countryData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "Tourist Visa",
-        description: "For sightseeing and tourism",
-        processingTime: "7-10 days",
-        validity: "15-90 days",
-        fee: "¥3,000"
+        type: "Short Stay Tourist Visa",
+        description: "For sightseeing and holidays in Japan",
+        processingTime: "5-10 working days",
+        validity: "Up to 90 days",
+        fee: "Visa fee waived"
       },
       {
-        type: "Business Visa",
-        description: "For business activities",
-        processingTime: "7-10 days",
-        validity: "90 days",
-        fee: "¥3,000"
+        type: "Visiting Relatives or Friends",
+        description: "For visiting family or friends living in Japan",
+        processingTime: "5-10 working days",
+        validity: "Up to 90 days",
+        fee: "Visa fee waived"
       }
     ],
+    pricing: {
+      title: "Japan Visa Cost from Bangladesh",
+      note: "Japan waives the consular visa fee for Bangladeshi nationals on short stay visas, so you normally pay only the visa centre service charge.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Short Stay Tourist Visa", "Consular fee waived; JVAC service charge, form filling and itinerary preparation", "About BDT 2,090"],
+            ["Visiting Relatives or Friends", "Consular fee waived; JVAC service charge, form filling and itinerary preparation", "About BDT 2,090"]
+          ]
+        }
+      ],
+      footnotes: [
+        "All Japan visa applications from Bangladesh go through VFS Global in Dhaka - the Embassy of Japan does not accept walk-ins.",
+        "The service charge is payable whether or not the visa is granted.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate.",
+        "Fees are revised from time to time, so please confirm with us before you pay."
+      ]
+    },
     requirements: [
-      "Valid passport",
-      "Visa application form",
-      "Passport photograph",
-      "Travel itinerary",
-      "Hotel reservations",
-      "Financial documents",
-      "Employment certificate",
-      "Bank statements (last 6 months)",
-      "Return flight tickets",
-      "Purpose of visit letter"
+      "All passports (current and all previous passports)",
+      "Completed Japan visa application form",
+      "Recent photograph (45mm x 45mm, white background)",
+      "Bank solvency certificate and bank statement of the last 6 months",
+      "Income tax return and TIN certificate",
+      "Updated trade license, company pad and visiting card (business person)",
+      "NOC, office ID and salary certificate (job holder)",
+      "Day by day travel schedule for the whole trip",
+      "Confirmed air ticket booking and hotel reservation",
+      "Invitation letter and guarantor documents (for family visits)"
     ],
     process: [
-      "Complete application form",
-      "Prepare documents",
-      "Submit at embassy/consulate",
-      "Pay visa fee",
-      "Wait for processing",
-      "Collect visa in passport"
+      "Free consultation - we confirm the right short stay category",
+      "We complete the application form and build your file",
+      "We prepare the day by day itinerary Japan asks for",
+      "Submit the application at VFS Global (JVAC) Dhaka",
+      "The embassy reviews the application",
+      "We track the file and update you",
+      "Collect your passport with the visa"
     ],
     additionalInfo: [
-      "Personal submission required",
-      "Interview may be required",
-      "Single/multiple entry available",
-      "Processing: 5-10 working days"
+      "Japan requires a detailed day by day schedule - a vague itinerary is a common reason for refusal",
+      "A guarantor in Japan strengthens family visit applications",
+      "The consular fee is waived for Bangladeshi short stay applicants",
+      "Applications are lodged through VFS Global Dhaka only",
+      "Japan does not issue visa on arrival to Bangladeshi passport holders"
     ]
   },
   cn: {
@@ -439,6 +163,13 @@ const countryData: Record<string, any> = {
         processingTime: "10+ working days",
         validity: "Single entry",
         fee: "From BDT 11,000"
+      },
+      {
+        type: "Medical Visa",
+        description: "For treatment at Chinese hospitals, with an attendant visa for one companion",
+        processingTime: "10+ working days",
+        validity: "As per treatment schedule",
+        fee: "Quoted on request"
       }
     ],
     pricing: {
@@ -463,6 +194,14 @@ const countryData: Record<string, any> = {
           rows: [
             ["Recent travel to China, Malaysia, Singapore or a first-world country visited", "Processing charge + Embassy fee", "BDT 11,000"],
             ["Fresh passport", "Processing charge + Embassy fee", "BDT 13,000"]
+          ]
+        },
+        {
+          title: "Medical Visa - Package Price",
+          columns: ["Visa Category", "Service Included", "Total Cost"],
+          rows: [
+            ["Medical Visa", "Processing charge + Embassy fee", "Quoted on request"],
+            ["Attendant Visa - one companion", "Processing charge + Embassy fee", "Quoted on request"]
           ]
         }
       ],
@@ -493,6 +232,7 @@ const countryData: Record<string, any> = {
       "Collect your passport with the visa - 10+ working days"
     ],
     additionalInfo: [
+      "Medical visa applicants also need a hospital appointment letter from the Chinese hospital, and an attendant visa can be arranged for one companion",
       "Tripbirds Travels is a Government approved travel agency for China visa processing",
       "Minimum bank balance of BDT 3,00,000 per person is mandatory",
       "Interview may be required at the discretion of the visa center",
@@ -508,52 +248,58 @@ const countryData: Record<string, any> = {
     visaTypes: [
       {
         type: "Visit Visa",
-        description: "For tourism and visiting family or friends",
-        processingTime: "7-14 days",
+        description: "For tourism and visiting family or friends in Hong Kong",
+        processingTime: "30+ working days",
         validity: "Up to 90 days",
-        fee: "HKD $230"
-      },
-      {
-        type: "Business Visa",
-        description: "For business meetings, trade fairs and negotiations",
-        processingTime: "7-14 days",
-        validity: "Up to 90 days",
-        fee: "HKD $230"
-      },
-      {
-        type: "Student Visa",
-        description: "For studying at Hong Kong institutions",
-        processingTime: "6-8 weeks",
-        validity: "Duration of course",
-        fee: "HKD $230"
+        fee: "About BDT 3,600"
       }
     ],
+    pricing: {
+      title: "Hong Kong Visa Cost from Bangladesh",
+      note: "Hong Kong visas are applied for online with the Immigration Department. There is no Hong Kong visa centre in Dhaka, and the fee is paid only after the application is approved in principle.",
+      groups: [
+        {
+          title: "Visit Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Visit Visa", "Immigration Department fee + online filing and sponsor coordination", "About BDT 3,600"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Taka amounts are based on the August 2026 exchange rate and can change - please confirm today's rate with us before you pay.",
+        "The visa fee is paid only after approval in principle, so a refused application costs no government fee.",
+        "The approved e-Visa is emailed to you and must be printed and carried while travelling.",
+        "A local sponsor in Hong Kong is required for most visit applications.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed form ID 991A (visit) or ID 992A (business)",
-      "Recent passport-sized photographs",
-      "Confirmed return flight ticket",
-      "Hotel booking confirmation",
-      "Bank statements (last 6 months)",
-      "Employment or business documents",
-      "Sponsorship form ID 991B from Hong Kong sponsor",
-      "Copy of sponsor's HKID card",
-      "Travel itinerary"
+      "All passport, visa and seal scan copy",
+      "Bank solvency certificate and bank statement of the last 6 months (last balance minimum 5,00,000 Taka)",
+      "Recent photo (35 x 45 size)",
+      "Updated trade license (with English notary), company pad, visiting card, business deed copy, business receipt copy or invoice, and photos at the workplace with the company signboard (business person)",
+      "NOC, salary certificate or payslip, office ID or visiting card, employment contract, and photos at the workplace with the company signboard (job holder)",
+      "Marriage certificate and nikahnama with English notary (husband and wife)",
+      "TIN copy and updated tax return certificate copy (last 3 years)",
+      "Photos of your previous visits to other countries"
     ],
     process: [
-      "Arrange a local sponsor in Hong Kong",
-      "Complete the application and sponsorship forms",
-      "Collect all supporting documents",
-      "Submit application to Hong Kong Immigration Department",
-      "Pay the visa fee after approval-in-principle",
-      "Receive the visa label",
-      "Affix label to passport before travel"
+      "Free consultation - we confirm whether you need a local sponsor",
+      "We complete the online application on the ImmD portal",
+      "Your Hong Kong sponsor submits the sponsorship form",
+      "Immigration assesses the application",
+      "Approval in principle is issued and the fee is paid",
+      "The e-Visa is emailed to you",
+      "Print the e-Visa and carry it with your passport"
     ],
     additionalInfo: [
-      "A local sponsor is required for most applications",
-      "Applications are processed directly by HK Immigration",
-      "Pre-arrival registration required for Indian nationals",
-      "Visa label must be collected within 3 months"
+      "Photos of your workplace with the company signboard, and of your previous trips abroad, are part of the required file",
+      "Hong Kong tourist visas are processed online by the Immigration Department - no visa centre visit in Dhaka",
+      "A local sponsor is required for most visit applications",
+      "The e-Visa notification slip must be printed and shown on arrival",
+      "Processing usually takes 30+ working days, so apply well ahead",
+      "The visa label or e-Visa must be used within three months of issue"
     ]
   },
   th: {
@@ -562,53 +308,68 @@ const countryData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "Tourist Visa (TR)",
-        description: "For tourism and leisure travel",
-        processingTime: "5-10 days",
+        type: "Tourist e-Visa (TR)",
+        description: "For tourism and holidays in Thailand",
+        processingTime: "15+ working days",
         validity: "60 days per entry",
-        fee: "THB 2,000"
-      },
-      {
-        type: "Business Visa (Non-B)",
-        description: "For business meetings and trade activities",
-        processingTime: "7-10 days",
-        validity: "90 days",
-        fee: "THB 3,000"
+        fee: "From BDT 5,500"
       },
       {
         type: "Medical Treatment Visa",
-        description: "For treatment at Thai hospitals",
-        processingTime: "5-7 days",
+        description: "For treatment at Bumrungrad, Bangkok Hospital and other Thai hospitals",
+        processingTime: "15+ working days",
         validity: "60-90 days",
-        fee: "THB 2,000"
+        fee: "Quoted on request"
       }
     ],
+    pricing: {
+      title: "Thailand Visa Cost from Bangladesh",
+      note: "Thailand now issues e-Visas only. The cost is the embassy fee plus the VFS Global service charge, and applications are submitted through the Thai e-Visa portal.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Tourist e-Visa (TR) - single entry", "Embassy fee + VFS charge and e-Visa filing", "BDT 5,500 - 6,500"],
+            ["Medical Treatment Visa", "Embassy fee + VFS charge and e-Visa filing", "Quoted on request"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Bank statement must show a last balance of minimum 2,00,000 Taka per person.",
+        "Documents in Bangla must be translated into English and notarised.",
+        "Applications are submitted through VFS Global centres in Dhaka, Chattogram and Sylhet.",
+        "The embassy fee is non-refundable even if the visa is refused.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed e-Visa application",
-      "Recent passport-sized photograph",
-      "Confirmed round-trip air ticket",
-      "Hotel booking for entire stay",
-      "Bank statement showing minimum THB 20,000 equivalent",
-      "Employment certificate or trade license",
-      "Invitation letter (for business visa)",
-      "Hospital appointment letter (for medical visa)",
-      "Proof of accommodation address in Thailand"
+      "Passport information page and all visa and seal scan copy",
+      "Bank solvency certificate and bank statement of the last 6 months, with a last balance of minimum 2,00,000 Taka (per person)",
+      "Recent clear photo (35 x 45, white background)",
+      "Updated trade license (with English notary), company pad and visiting card (business person)",
+      "NOC, salary certificate or payslip, office ID card and visiting card (job holder)",
+      "Marriage certificate and nikahnama with English notary (husband and wife)",
+      "Student ID card copy (student)",
+      "TIN copy and updated tax return certificate copy",
+      "Birth certificate (child)"
     ],
     process: [
-      "Register on the Thailand e-Visa portal",
-      "Fill in the online application and upload documents",
-      "Pay the visa fee online",
-      "Wait for document verification",
-      "Attend interview if requested by the embassy",
-      "Receive e-Visa approval by email",
-      "Print e-Visa and carry it while travelling"
+      "Free consultation - we confirm the right visa category and your timeline",
+      "We register you on the Thailand e-Visa portal and complete the form",
+      "We upload the document set and pay the fee online",
+      "The embassy verifies your documents",
+      "Attend an interview only if the embassy asks for one",
+      "The approved e-Visa is emailed to you",
+      "Print the e-Visa and carry it while travelling"
     ],
     additionalInfo: [
-      "Thailand now issues e-Visas only - no sticker visa",
-      "Visa on arrival available for selected nationalities",
-      "Extension of 30 days possible inside Thailand",
-      "Proof of sufficient funds may be checked at immigration"
+      "Medical treatment applicants also need an appointment letter from the Thai hospital",
+      "Thailand issues e-Visas only - there is no sticker visa any more",
+      "Bangladeshi passport holders are not eligible for visa on arrival",
+      "A 30 day extension is usually possible from inside Thailand",
+      "Immigration may check proof of funds and onward travel on arrival",
+      "Apply at least four weeks before travel to allow for extra document requests"
     ]
   },
   my: {
@@ -617,53 +378,58 @@ const countryData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "eVISA (Tourist)",
-        description: "For tourism and family visits",
-        processingTime: "5-7 days",
-        validity: "30 days per entry",
-        fee: "MYR 100"
-      },
-      {
-        type: "eVISA (Business)",
-        description: "For business meetings and conferences",
-        processingTime: "5-7 days",
-        validity: "30 days per entry",
-        fee: "MYR 100"
-      },
-      {
-        type: "Medical Visa",
-        description: "For treatment at Malaysian hospitals",
-        processingTime: "5-7 days",
-        validity: "30-90 days",
-        fee: "MYR 100"
+        type: "eVisa Single Entry (Tourist)",
+        description: "For tourism and holidays in Malaysia",
+        processingTime: "7+ working days",
+        validity: "30 days stay, valid 6 months",
+        fee: "About BDT 3,800"
       }
     ],
+    pricing: {
+      title: "Malaysia Visa Cost from Bangladesh",
+      note: "Malaysia issues an eVisa to Bangladeshi nationals. The cost below is the immigration visa fee plus the online processing fee.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["eVisa Single Entry (Tourist)", "Immigration visa fee + online processing fee and filing", "About BDT 3,800"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Taka amounts are based on the August 2026 exchange rate and can change - please confirm today's rate with us before you pay.",
+        "The Single Entry eVisa is valid for 6 months from issue and allows a 30 day stay with no extension.",
+        "Your passport must have at least 6 months validity and 2 blank pages.",
+        "Processing takes longer if immigration asks for extra documents or calls you for an interview.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed eVISA online application",
-      "Recent passport-sized photograph (white background)",
-      "Confirmed return flight ticket",
-      "Hotel booking confirmation",
-      "Bank statements (last 3-6 months)",
-      "Employment letter or business documents",
-      "Invitation letter from Malaysian company (for business)",
-      "Hospital appointment letter (for medical visa)",
-      "Proof of sufficient funds"
+      "Current passport and old passport information page scan copy, plus all visa and seal scan copy",
+      "Bank statement of the last 6 months and bank solvency certificate, with a last balance of minimum 1,00,000 Taka (per person)",
+      "Recent photo (35 x 50 size)",
+      "Updated trade license (with English notary), company pad and visiting card (business person)",
+      "NOC, salary certificate or payslip, office ID or visiting card (job holder)",
+      "Student ID card copy (student)",
+      "TIN copy and updated tax return certificate copy",
+      "NID or birth certificate copy"
     ],
     process: [
-      "Create an account on the Malaysia eVISA portal",
-      "Complete the application form online",
-      "Upload scanned documents and photograph",
-      "Pay the eVISA processing fee",
-      "Wait for approval notification",
-      "Download and print the eVISA",
-      "Present eVISA at the port of entry"
+      "Free consultation - we confirm your eligibility and timeline",
+      "Send us your passport scan, photograph and supporting documents",
+      "We complete the eVisa application on the Malaysian immigration portal",
+      "We upload the documents and pay the fee online",
+      "Immigration reviews the application",
+      "The approved eVisa is emailed to you",
+      "Print the eVisa and carry it while travelling"
     ],
     additionalInfo: [
-      "eVISA is issued fully online - no embassy visit needed",
-      "Single and multiple entry options available",
-      "Malaysia Digital Arrival Card (MDAC) required before arrival",
-      "eVISA must be used within 3 months of issue"
+      "Malaysia issues an eVisa - there is no embassy visit or sticker in your passport",
+      "Immigration assesses genuine tourism intent, sufficient funds and your ties to Bangladesh",
+      "The Single Entry eVisa permits a 30 day stay with no extension",
+      "Bangladeshi passport holders are not eligible for visa on arrival in Malaysia",
+      "Keep your hotel booking and return ticket handy for immigration at KLIA"
     ]
   },
   ph: {
@@ -672,53 +438,58 @@ const countryData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "Temporary Visitor Visa (9A)",
-        description: "For tourism and visiting family",
-        processingTime: "7-15 days",
-        validity: "59 days",
-        fee: "$40"
-      },
-      {
-        type: "Business Visa (9A)",
-        description: "For business meetings and conferences",
-        processingTime: "7-15 days",
-        validity: "59 days",
-        fee: "$40"
-      },
-      {
-        type: "Student Visa (9F)",
-        description: "For studying at Philippine institutions",
-        processingTime: "20-30 days",
-        validity: "Duration of course",
-        fee: "$60"
+        type: "Temporary Visitor Visa 9(a)",
+        description: "For tourism and visiting family or friends in the Philippines",
+        processingTime: "15+ working days",
+        validity: "Up to 59 days stay",
+        fee: "From BDT 3,500"
       }
     ],
+    pricing: {
+      title: "Philippines Visa Cost from Bangladesh",
+      note: "The Embassy of the Philippines in Dhaka processes applications mainly through accredited agencies. The embassy fee is paid at submission and the agency service charge is added on top.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Temporary Visitor Visa 9(a)", "Embassy fee + application filing", "BDT 3,500 - 5,000"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Bangladeshi passport holders are not eligible for visa-free entry or visa on arrival in the Philippines.",
+        "Apply at least four weeks before travel to leave room for extra document requests.",
+        "The embassy fee is non-refundable even if the visa is refused.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed visa application form (duly notarised)",
-      "Passport-sized photographs (2 copies)",
-      "Confirmed round-trip flight booking",
-      "Hotel reservation for entire stay",
-      "Bank statements (last 6 months)",
-      "Employment certificate or business documents",
-      "Invitation letter from Philippine host or company",
-      "Police clearance certificate",
-      "Proof of sufficient financial capacity"
+      "Passport information page scan copy, plus all visa and immigration arrival or departure seal scan copy",
+      "Bank statement of the last 6 months and bank solvency certificate, with a last balance of minimum 2,50,000 Taka (per person)",
+      "Recent photo (35 x 50 size)",
+      "Updated trade license (with English notary), company pad and visiting card (business person)",
+      "NOC, salary certificate or payslip, office ID or visiting card (job holder)",
+      "Student ID card copy (student)",
+      "TIN copy and updated tax return certificate copy",
+      "NID or birth certificate copy",
+      "Utility bill copy (present address)"
     ],
     process: [
-      "Download and complete the visa application form",
-      "Have the form notarised",
-      "Book an appointment at the Philippine Embassy",
-      "Submit documents in person",
-      "Pay the visa fee",
-      "Attend interview if required",
-      "Collect passport with visa"
+      "Free consultation - we confirm the right 9(a) category for your trip",
+      "We complete the application form and prepare your document file",
+      "We submit the application to the Embassy of the Philippines in Dhaka",
+      "The embassy reviews the file and may ask for extra papers",
+      "Attend an interview if the embassy requests one",
+      "We collect the outcome and inform you",
+      "Collect your passport with the visa sticker"
     ],
     additionalInfo: [
-      "Personal appearance may be required at the embassy",
-      "Single, multiple and 6-month entry options available",
-      "eTravel registration required before arrival",
-      "Stay can be extended at Bureau of Immigration offices"
+      "The Philippine Embassy in Dhaka works largely through accredited agencies",
+      "Bangladeshi passport holders must hold a visa before boarding",
+      "Processing usually takes 15+ working days depending on the embassy workload",
+      "A stay of up to 59 days is normally granted on a 9(a) visa",
+      "Extensions are possible from inside the Philippines through the Bureau of Immigration"
     ]
   },
   in: {
@@ -728,59 +499,66 @@ const countryData: Record<string, any> = {
     visaTypes: [
       {
         type: "Tourist Visa",
-        description: "For tourism and sightseeing",
-        processingTime: "3-5 days",
-        validity: "30 days to 1 year",
-        fee: "$25"
+        description: "For tourism, sightseeing and visiting friends or family in India",
+        processingTime: "4-7 working days",
+        validity: "As per embassy decision",
+        fee: "BDT 1,500"
       },
       {
         type: "Medical Visa",
-        description: "For treatment at Indian hospitals",
-        processingTime: "3-5 days",
-        validity: "60 days (triple entry)",
-        fee: "$25"
-      },
-      {
-        type: "Business Visa",
-        description: "For trade, meetings and business activities",
-        processingTime: "5-7 days",
-        validity: "Up to 1 year",
-        fee: "$40"
-      },
-      {
-        type: "Student Visa",
-        description: "For studying at Indian institutions",
-        processingTime: "7-15 days",
-        validity: "Duration of course",
-        fee: "$50"
+        description: "For treatment at Indian hospitals, with an attendant visa for one companion",
+        processingTime: "4-7 working days",
+        validity: "As per treatment schedule",
+        fee: "BDT 1,500"
       }
     ],
+    pricing: {
+      title: "India Visa Cost from Bangladesh",
+      note: "The Government of India does not charge a visa fee to Bangladeshi nationals. You pay only the IVAC processing fee, which is all inclusive.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Tourist Visa", "No Indian visa fee; IVAC processing fee, online filing and appointment booking", "BDT 1,500"],
+            ["Medical Visa", "No Indian visa fee; IVAC processing fee, online filing and appointment booking", "BDT 1,500"]
+          ]
+        }
+      ],
+      footnotes: [
+        "The Indian visa itself remains free of charge for all Bangladeshi nationals - only the IVAC processing fee applies.",
+        "Bangladeshi passport holders are not eligible for the Indian e-Tourist Visa or visa on arrival, so a sticker visa is mandatory before travel.",
+        "Applications are accepted at IVAC centres in Dhaka, Chattogram, Sylhet, Rajshahi and Khulna.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity, 2 blank pages)",
-      "Completed online visa application form",
-      "Recent passport-sized photograph (2x2 inch, white background)",
-      "National ID card copy",
-      "Bank statement or dollar endorsement",
-      "Utility bill as proof of address",
-      "Employment certificate or trade license",
-      "Confirmed travel plan",
-      "Hospital appointment letter (for medical visa)",
-      "Invitation letter from Indian company (for business visa)"
+      "Original passport with at least 6 months validity and 2 blank pages",
+      "Online application printout from indianvisa-bangladesh.nic.in, signed at all marked places",
+      "Photocopy of the passport biodata page",
+      "Recent photograph (50mm x 50mm, white background)",
+      "Bank solvency certificate and bank statement of the last 6 months, or an encashment certificate of USD 150",
+      "Utility bill copy showing your present address",
+      "Updated trade license, company pad and visiting card (business person)",
+      "NOC, office ID and salary certificate (job holder)",
+      "Hospital appointment letter from the Indian hospital (for medical visa)",
+      "National ID card or birth certificate copy"
     ],
     process: [
-      "Fill the online application at the Indian Visa portal",
-      "Book an appointment at IVAC",
-      "Print application and attach documents",
-      "Submit documents and biometrics at IVAC",
-      "Pay the visa fee",
-      "Track application status online",
-      "Collect passport with visa"
+      "Free consultation - we confirm the right visa category for your trip",
+      "We complete the online application on the Indian visa portal",
+      "We book your IVAC appointment slot",
+      "We check your document file before submission",
+      "You submit the file and give biometrics at IVAC",
+      "The High Commission processes the application",
+      "Collect your passport with the visa from IVAC"
     ],
     additionalInfo: [
-      "Port of entry must be selected during application",
-      "e-Visa available for selected nationalities",
-      "Medical attendant visa available for accompanying family",
-      "Photograph specifications are strictly enforced"
+      "The Indian visa is free of charge for Bangladeshi nationals - only the IVAC processing fee is payable",
+      "Bangladeshi passport holders cannot use the e-Tourist Visa or visa on arrival",
+      "The port of entry and exit is fixed on the visa, so choose air, rail or land carefully",
+      "Medical visa applicants can also get an attendant visa for one companion",
+      "IVAC appointment slots fill up quickly - book as early as you can"
     ]
   },
   id: {
@@ -789,53 +567,60 @@ const countryData: Record<string, any> = {
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&h=400&fit=crop",
     visaTypes: [
       {
-        type: "e-Visa on Arrival (B1)",
-        description: "For tourism and short visits",
-        processingTime: "2-5 days",
-        validity: "30 days (extendable)",
-        fee: "$50"
-      },
-      {
-        type: "Tourist Visa (C1)",
-        description: "For tourism and family visits",
-        processingTime: "5-7 days",
-        validity: "60 days",
-        fee: "$100"
-      },
-      {
-        type: "Business Visa (C2)",
-        description: "For business meetings and negotiations",
-        processingTime: "5-10 days",
-        validity: "60 days to 1 year",
-        fee: "$150"
+        type: "Tourist Visa",
+        description: "For tourism and holidays in Bali, Jakarta and the rest of Indonesia",
+        processingTime: "15+ working days",
+        validity: "Up to 60 days",
+        fee: "BDT 8,000"
       }
     ],
+    pricing: {
+      title: "Indonesia Visa Cost from Bangladesh",
+      note: "Indonesian visas for Bangladeshi nationals are arranged through the Embassy of Indonesia in Dhaka, with the fee payable in Taka at submission.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Tourist Visa", "Embassy fee + application filing and appointment booking", "BDT 8,000"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Bangladeshi passport holders are not eligible for Indonesia's visa-free or visa on arrival schemes.",
+        "The embassy fee is non-refundable even if the visa is refused.",
+        "Processing starts only after the complete document set has been submitted.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed e-Visa online application",
-      "Recent passport-sized photograph",
-      "Confirmed return or onward flight ticket",
-      "Hotel booking confirmation",
-      "Bank statement with minimum $2,000 balance",
-      "Employment certificate or business documents",
-      "Sponsorship letter from Indonesian guarantor (for business)",
-      "Travel itinerary",
-      "Health insurance covering the stay"
+      "All passports",
+      "Bank solvency certificate and bank statement of the last 6 months (last balance minimum 2,50,000 Taka per person)",
+      "Recent passport size photo (2 copy)",
+      "Updated trade license (with English notary), pad and visiting card (business person)",
+      "NOC, salary certificate, office ID card and visiting card (job holder)",
+      "Bar council certificate and professional ID card (advocate)",
+      "Student ID card copy (student)",
+      "Marriage certificate and nikahnama with English notary (husband and wife)",
+      "TIN copy and updated tax return certificate copy",
+      "Health insurance",
+      "Blank bank cheque page (original copy)"
     ],
     process: [
-      "Register on the Indonesian e-Visa (molina) portal",
-      "Complete the application and upload documents",
-      "Pay the visa fee online",
-      "Wait for approval by immigration",
-      "Receive e-Visa by email",
-      "Fill the electronic customs declaration before arrival",
-      "Present e-Visa at the port of entry"
+      "Free consultation - we confirm the right visa category and cost",
+      "We complete the application form and prepare your document file",
+      "We book your appointment at the Embassy of Indonesia in Dhaka",
+      "You submit the file and pay the embassy fee",
+      "The embassy reviews the application",
+      "We track the file and update you on the outcome",
+      "Collect your passport with the visa"
     ],
     additionalInfo: [
-      "e-VOA can be extended once for another 30 days",
-      "Guarantor required for business and work visas",
-      "All visas are now issued electronically",
-      "Bali levy payable separately on arrival in Bali"
+      "The applicant must come to the Indonesian Embassy in person to submit the passport and documents",
+      "Bangladeshi passport holders need a visa before travelling to Indonesia",
+      "Bali, Jakarta and Lombok are all covered by the same tourist visa",
+      "Processing takes 15+ working days from complete submission",
+      "Immigration may check your return ticket and proof of funds on arrival"
     ]
   },
   eg: {
@@ -845,52 +630,63 @@ const countryData: Record<string, any> = {
     visaTypes: [
       {
         type: "Tourist Visa",
-        description: "For tourism and sightseeing",
-        processingTime: "7-15 days",
-        validity: "30 days",
-        fee: "$25"
+        description: "For sightseeing at the Pyramids, Nile cruises and holidays in Egypt",
+        processingTime: "40+ working days",
+        validity: "Up to 30 days",
+        fee: "From BDT 6,000"
       },
       {
-        type: "Business Visa",
-        description: "For business meetings and trade activities",
-        processingTime: "10-15 days",
-        validity: "30-90 days",
-        fee: "$60"
-      },
-      {
-        type: "e-Visa",
-        description: "Online visa for eligible nationalities",
-        processingTime: "5-7 days",
-        validity: "30 days",
-        fee: "$25"
+        type: "Umrah or Transit Visa",
+        description: "For travellers routing through Egypt",
+        processingTime: "40+ working days",
+        validity: "As per itinerary",
+        fee: "Quoted on request"
       }
     ],
+    pricing: {
+      title: "Egypt Visa Cost from Bangladesh",
+      note: "Egyptian visas for Bangladeshi nationals are issued by the Embassy of Egypt in Dhaka. The short term visa fee is payable at submission.",
+      groups: [
+        {
+          title: "Tourist Visa - Cost from Bangladesh",
+          columns: ["Visa Category", "What is Included", "Cost"],
+          rows: [
+            ["Tourist Visa - short term single entry", "Embassy fee + application filing", "From BDT 6,000"],
+            ["Umrah or Transit Visa", "Embassy fee + application filing", "Quoted on request"]
+          ]
+        }
+      ],
+      footnotes: [
+        "Bangladeshi passport holders are not eligible for Egypt's visa on arrival scheme.",
+        "The embassy fee is non-refundable even if the visa is refused.",
+        "An invitation or a confirmed tour package strengthens the application considerably.",
+        "Tripbirds Travels service charge is quoted separately after we review your passport and profile - call our hotline for today's rate."
+      ]
+    },
     requirements: [
-      "Valid passport (minimum 6 months validity)",
-      "Completed visa application form",
-      "Passport-sized photographs (2 copies)",
-      "Confirmed round-trip flight booking",
-      "Hotel reservation for entire stay",
-      "Bank statements (last 6 months)",
-      "Employment certificate or trade license",
-      "Invitation letter from Egyptian company (for business)",
-      "Travel itinerary",
-      "Proof of sufficient funds"
+      "All passports",
+      "Bank statement of the last 6 months and bank solvency certificate, with a last balance of minimum 5,00,000 Taka",
+      "Recent photo (2 copy, passport size)",
+      "Updated trade license (with English notary), company pad and visiting card (business person)",
+      "NOC, salary certificate, office ID card and visiting card (job holder)",
+      "TIN certificate copy and updated tax return certificate copy",
+      "NID or birth certificate copy"
     ],
     process: [
-      "Choose between e-Visa and embassy application",
-      "Complete the application form",
-      "Gather and attach supporting documents",
-      "Submit application and pay the fee",
-      "Wait for processing and verification",
-      "Receive e-Visa by email or collect passport",
-      "Present the visa at the port of entry"
+      "Free consultation - we confirm your visa category and timeline",
+      "We complete the application form and prepare your document file",
+      "We arrange your tour package or hotel confirmation if needed",
+      "We submit the application to the Embassy of Egypt in Dhaka",
+      "The embassy reviews the file and may call for an interview",
+      "We track the application and update you",
+      "Collect your passport with the visa"
     ],
     additionalInfo: [
-      "Visa on arrival available for many nationalities",
-      "Single and multiple entry options available",
-      "Separate permit needed for Sinai-only travel",
-      "e-Visa must be printed and carried while travelling"
+      "Bangladeshi passport holders must obtain the visa before travelling to Egypt",
+      "A confirmed tour package or hotel booking is expected with the application",
+      "A separate permit is needed for Sinai-only travel",
+      "Processing takes 40+ working days from submission",
+      "Apply at least a month before travel, especially in the winter tourist season"
     ]
   },
 };
@@ -933,13 +729,7 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
-          <Link
-            href="/"
-            className="inline-flex items-center text-white/80 hover:text-white text-sm font-medium mb-8 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Home
-          </Link>
+          <BackButton className="inline-flex items-center text-white/80 hover:text-white text-sm font-medium mb-8 transition-colors" />
 
           <div className="flex flex-col md:flex-row md:items-center md:gap-8">
             <div className="text-7xl md:text-8xl mb-4 md:mb-0 leading-none">

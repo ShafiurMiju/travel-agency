@@ -9,15 +9,16 @@ export const metadata: Metadata = {
 
 export default function VisaInformationPage() {
   const countries = [
-    { name: "China", code: "cn", continent: "Asia", processing: "10+ working days", fee: "Contact for fee", visaRequired: true },
-    { name: "Hong Kong", code: "hk", continent: "Asia", processing: "7-14 days", fee: "HKD $230", visaRequired: true },
-    { name: "Thailand", code: "th", continent: "Asia", processing: "5-10 days", fee: "THB 2,000", visaRequired: true },
-    { name: "Singapore", code: "sg", continent: "Asia", processing: "5-7 days", fee: "SGD $30", visaRequired: true },
-    { name: "Malaysia", code: "my", continent: "Asia", processing: "5-7 days", fee: "MYR 100", visaRequired: true },
-    { name: "Philippines", code: "ph", continent: "Asia", processing: "7-15 days", fee: "$40", visaRequired: true },
-    { name: "India", code: "in", continent: "Asia", processing: "3-5 days", fee: "$25", visaRequired: true },
-    { name: "Indonesia", code: "id", continent: "Asia", processing: "5-7 days", fee: "$50", visaRequired: true },
-    { name: "Egypt", code: "eg", continent: "Africa", processing: "7-15 days", fee: "$25", visaRequired: true },
+    { name: "China", code: "cn", continent: "Asia", processing: "10+ working days", fee: "From BDT 10,000", visaRequired: true },
+    { name: "India", code: "in", continent: "Asia", processing: "4-7 working days", fee: "BDT 1,500 (IVAC fee)", visaRequired: true },
+    { name: "Malaysia", code: "my", continent: "Asia", processing: "7+ working days", fee: "About BDT 3,800", visaRequired: true },
+    { name: "Thailand", code: "th", continent: "Asia", processing: "15+ working days", fee: "From BDT 5,500", visaRequired: true },
+    { name: "Singapore", code: "sg", continent: "Asia", processing: "7+ working days", fee: "About BDT 2,900 + agent", visaRequired: true },
+    { name: "Hong Kong", code: "hk", continent: "Asia", processing: "30+ working days", fee: "About BDT 3,600", visaRequired: true },
+    { name: "Japan", code: "jp", continent: "Asia", processing: "5-10 working days", fee: "Visa fee waived", visaRequired: true },
+    { name: "Indonesia", code: "id", continent: "Asia", processing: "15+ working days", fee: "BDT 8,000", visaRequired: true },
+    { name: "Philippines", code: "ph", continent: "Asia", processing: "15+ working days", fee: "From BDT 3,500", visaRequired: true },
+    { name: "Egypt", code: "eg", continent: "Africa", processing: "40+ working days", fee: "From BDT 6,000", visaRequired: true },
   ];
 
   const continents = ["All", "Asia", "Africa"];
