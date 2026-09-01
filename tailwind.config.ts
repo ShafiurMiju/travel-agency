@@ -44,6 +44,9 @@ const config: Config = {
         'slide-up': 'slideUp 0.5s ease-out',
         'slide-down': 'slideDown 0.3s ease-out',
         'slide-in-right': 'slideInRight 0.3s ease-out',
+        'float': 'float 14s ease-in-out infinite',
+        'dash': 'dash 30s linear infinite',
+        'ping-slow': 'pingSlow 3.5s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
       keyframes: {
         fadeIn: {
@@ -61,6 +64,18 @@ const config: Config = {
         slideInRight: {
           '0%': { transform: 'translateX(20px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, -28px, 0)' },
+        },
+        dash: {
+          '0%': { strokeDashoffset: '0' },
+          '100%': { strokeDashoffset: '-600' },
+        },
+        pingSlow: {
+          '0%': { transform: 'scale(0.4)', opacity: '0.8' },
+          '80%, 100%': { transform: 'scale(1.6)', opacity: '0' },
         },
       },
     },

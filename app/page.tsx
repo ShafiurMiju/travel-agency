@@ -17,6 +17,7 @@ import {
 import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
 import CountryCard from "@/components/CountryCard";
+import WorldMapBackdrop from "@/components/WorldMapBackdrop";
 
 export const metadata: Metadata = {
   title: "Tripbirds Travels | Expert Visa Processing & Travel Solutions",
@@ -135,23 +136,41 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop"
-            alt="Travel Background"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/80 to-primary-700/80"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-950">
+        {/* Background: layered gradient + aurora glows + flight paths (no imagery, no text) */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800" />
+
+          {/* Aurora glows */}
+          <div className="absolute -top-40 -left-32 h-[32rem] w-[32rem] rounded-full bg-accent-500/25 blur-3xl animate-float" />
+          <div className="absolute top-1/4 -right-40 h-[36rem] w-[36rem] rounded-full bg-primary-500/30 blur-3xl animate-float animation-delay-300" />
+          <div className="absolute -bottom-48 left-1/4 h-[30rem] w-[30rem] rounded-full bg-accent-400/15 blur-3xl animate-float animation-delay-200" />
+
+          {/* Dotted world map + live flight routes */}
+          <div className="absolute inset-0 opacity-95">
+            <WorldMapBackdrop />
+          </div>
+
+          {/* Soft scrim so the map never fights the headline */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_42%_at_50%_45%,rgba(9,18,54,0.6),transparent_72%)]" />
+
+          {/* Drifting plane silhouettes */}
+          <Plane className="absolute top-[16%] left-[10%] h-10 w-10 text-white/20 rotate-[25deg] animate-float" />
+          <Plane className="absolute top-[30%] right-[18%] h-8 w-8 text-white/15 rotate-[15deg] animate-float animation-delay-200" />
+          <Plane className="absolute top-[66%] right-[12%] h-14 w-14 text-accent-300/20 -rotate-12 animate-float animation-delay-300" />
+
+          {/* Vignette + fade into next section */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(9,18,54,0.55)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-50/80 to-transparent" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.35)]">
               Your Gateway to
               <br />
-              <span className="text-accent-400">Global Travel</span>
+              <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-accent-200 bg-clip-text text-transparent">Global Travel</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
               Professional visa processing, air ticket booking, and hotel
@@ -161,14 +180,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Link
                 href="/visa-services"
-                className="inline-flex items-center bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-2xl hover:scale-105 group"
+                className="inline-flex items-center bg-white text-primary-800 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg shadow-primary-950/30 hover:bg-accent-300 hover:text-primary-900 transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
               >
                 Apply for Visa
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-transparent text-white px-8 py-4 rounded-xl font-semibold text-lg border-2 border-white hover:bg-white/10 transition-all"
+                className="inline-flex items-center bg-white/5 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold text-lg border border-white/40 hover:bg-white/15 hover:border-white transition-all hover:-translate-y-0.5"
               >
                 Contact Us
               </Link>
@@ -176,14 +195,17 @@ export default function Home() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in animation-delay-200">
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 animate-fade-in animation-delay-200">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <stat.icon className="h-10 w-10 text-accent-400 mx-auto mb-3" />
+              <div
+                key={index}
+                className="text-center rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md px-4 py-6 transition-all hover:bg-white/10 hover:border-white/30 hover:-translate-y-1"
+              >
+                <stat.icon className="h-9 w-9 text-accent-300 mx-auto mb-3" />
                 <div className="text-3xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/80">{stat.label}</div>
+                <div className="text-sm text-white/70">{stat.label}</div>
               </div>
             ))}
           </div>

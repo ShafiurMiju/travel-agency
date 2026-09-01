@@ -70,3 +70,18 @@ html {
 .animation-delay-400 {
   animation-delay: 400ms;
 }
+
+/* SVG pulse rings scale around their own center, not the SVG origin */
+.animate-ping-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-dash,
+  .animate-ping-slow {
+    animation: none;
+  }
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Plane } from "lucide-react";
 
 interface CTASectionProps {
   title?: string;
@@ -27,11 +27,76 @@ const CTASection = ({
 }: CTASectionProps) => {
   return (
     <section className={`relative bg-gradient-to-r ${gradient} py-20 overflow-hidden`}>
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+      {/* Decorative background: depth glows, dot grid and flight routes.
+          Kept to white/black alphas so it works over any `gradient` passed in. */}
+      <div className="absolute inset-0" aria-hidden="true">
+        {/* Depth: light from the top-left, shadow into the bottom-right */}
+        <div className="absolute -top-1/2 -left-24 h-[36rem] w-[36rem] rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-2/3 right-0 h-[34rem] w-[34rem] rounded-full bg-slate-950/25 blur-3xl" />
+
+        {/* Fine dot grid */}
+        <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,#ffffff_1px,transparent_0)] [background-size:26px_26px]" />
+
+        {/* Flight routes */}
+        <svg
+          viewBox="0 0 1440 400"
+          preserveAspectRatio="xMidYMid slice"
+          className="absolute inset-0 h-full w-full text-white"
+          fill="none"
+        >
+          <g
+            stroke="currentColor"
+            strokeOpacity="0.32"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeDasharray="7 10"
+          >
+            {/* Routed along the top and bottom edges so nothing crosses the copy */}
+            <path d="M-60 56 Q 320 6 700 34 T 1500 14" className="animate-dash" />
+            <path
+              d="M-60 358 Q 420 316 840 348 T 1500 322"
+              className="animate-dash"
+              style={{ animationDelay: "3s" }}
+            />
+            <path
+              d="M-60 250 Q 60 150 210 96 T 430 34"
+              className="animate-dash"
+              style={{ animationDelay: "5s" }}
+            />
+            <path
+              d="M1500 170 Q 1360 108 1230 78 T 1030 34"
+              className="animate-dash"
+              style={{ animationDelay: "7s" }}
+            />
+          </g>
+          <g fill="currentColor">
+            <circle cx="210" cy="96" r="4" fillOpacity="0.6" />
+            <circle cx="1230" cy="78" r="3" fillOpacity="0.5" />
+            <circle cx="700" cy="34" r="3" fillOpacity="0.5" />
+            <circle cx="840" cy="348" r="3" fillOpacity="0.45" />
+            <circle cx="330" cy="342" r="3" fillOpacity="0.4" />
+          </g>
+          <circle
+            cx="210"
+            cy="96"
+            r="11"
+            fill="none"
+            stroke="currentColor"
+            strokeOpacity="0.4"
+            strokeWidth="1.5"
+            className="animate-ping-slow"
+          />
+        </svg>
+
+        {/* Drifting plane silhouettes */}
+        <Plane className="absolute top-[18%] left-[8%] h-9 w-9 text-white/20 rotate-[20deg] animate-float" />
+        <Plane className="absolute bottom-[16%] right-[9%] h-12 w-12 text-white/15 -rotate-[10deg] animate-float animation-delay-300" />
+
+        {/* Scrim behind the copy, then edge vignette + hairline rules */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_58%_at_50%_50%,rgba(2,6,23,0.4),transparent_75%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,transparent_40%,rgba(2,6,23,0.32)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -45,7 +110,7 @@ const CTASection = ({
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animation-delay-200">
           <Link
             href={primaryButton.href}
-            className="inline-flex items-center bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-xl hover:scale-105 group"
+            className="inline-flex items-center bg-white text-primary-800 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg shadow-slate-950/25 hover:bg-gray-100 transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
           >
             {primaryButton.text}
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -54,7 +119,7 @@ const CTASection = ({
           {secondaryButton && (
             <Link
               href={secondaryButton.href}
-              className="inline-flex items-center bg-transparent text-white px-8 py-4 rounded-xl font-semibold text-lg border-2 border-white hover:bg-white/10 transition-all"
+              className="inline-flex items-center bg-white/5 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold text-lg border border-white/50 hover:bg-white/15 hover:border-white transition-all hover:-translate-y-0.5"
             >
               {secondaryButton.text}
             </Link>
