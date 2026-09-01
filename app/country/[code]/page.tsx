@@ -153,9 +153,9 @@ const countryData: Record<string, any> = {
     visaTypes: [
       {
         type: "Tourist Visa (L)",
-        description: "For tourism, sightseeing and visiting friends or family in China",
+        description: "For tourism, sightseeing and visiting friends or family in China. Issued as a sticker visa in your passport, in single, double or multiple entry form",
         processingTime: "10+ working days",
-        validity: "As per embassy decision",
+        validity: "Usually 3 months from date of issue",
         fee: "From BDT 10,000"
       },
       {
@@ -214,21 +214,28 @@ const countryData: Record<string, any> = {
       ]
     },
     requirements: [
-      "All passports",
+      "Original passport with minimum 7 months validity, plus all previous passports",
       "Bank solvency certificate and bank statement of the last 6 months, with a last balance of minimum 3,00,000 Taka (per person)",
-      "Recent photo (33 x 48 size)",
-      "Updated trade license, company pad and visiting card (business person)",
-      "NOC, office ID and visiting card (job holder)",
-      "Confirmed air ticket",
-      "Interview (if required)",
-      "Personal information"
+      "Two recent photos (33 x 48 size, white background)",
+      "National ID card copy",
+      "Confirmed air ticket - mandatory for a China visa application",
+      "Updated trade license, incorporation documents, company pad and visiting card (business person)",
+      "NOC or salary certificate, last 6 months payslips, office ID and visiting card (job holder)",
+      "Student ID card copy (student)",
+      "Retirement certificate and pension documents (retired applicant)",
+      "BMDC registration certificate (doctor)",
+      "Bar Council certificate and professional ID card (advocate)",
+      "Supporting professional documents for freelancers, artists and sportspeople",
+      "Birth certificate in English (for children)",
+      "Marriage certificate or nikahnama with English translation (if applicable)",
+      "Biometrics at the visa centre, and interview if required"
     ],
     process: [
       "Free consultation - tell us your travel plan and passport history, and we confirm your visa category and exact package price",
       "Hand over the required documents at our Gulshan office, or send scanned copies over WhatsApp",
-      "Our team checks your file, points out anything missing and fills in the online application for you",
-      "We pay the embassy fee and book your appointment at the China Visa Application Centre",
-      "You attend the centre for biometrics, and the interview if the embassy asks for one",
+      "Our team checks your file, points out anything missing and completes the COVA online application form for you",
+      "We pay the embassy fee and book your appointment at the China Visa Application Service Centre (CVASC) in Dhaka",
+      "You attend CVASC in person for fingerprints and biometrics, and the interview if the embassy asks for one",
       "The embassy processes your application while we track the status and keep you updated",
       "Collect your passport with the visa - 10+ working days"
     ],
@@ -237,6 +244,11 @@ const countryData: Record<string, any> = {
       "Tripbirds Travels is a Government approved travel agency for China visa processing",
       "Minimum bank balance of BDT 3,00,000 per person is mandatory",
       "Interview may be required at the discretion of the visa center",
+      "Biometrics are collected in person at CVASC Dhaka - the applicant must attend, this cannot be done by an agent",
+      "Applications are filed through the COVA online system and lodged at CVASC Dhaka; the embassy does not accept walk-in applications",
+      "Fresh passport holders with no travel history are usually asked for extra supporting documents",
+      "The visa fee is not refundable once the interview has taken place or the embassy has decided",
+      "The final decision rests entirely with the Embassy of China - no agency can guarantee approval",
       "Business, student and work visa categories are also processed - call us for details",
       "Hotline: 01640-481621, 01603-898001 | ask.tripbirds@gmail.com",
       "Offices: Confidence Center (Building-2), House# Kha-9, Flat# 15-E (Lift-15), Shahjadpur, Gulshan-2, Dhaka-1212 | Day Night Siraj Tower (Ground Floor), House No: Ta-114, Middle Badda, Gulshan Badda Link Road, Dhaka-1212"
