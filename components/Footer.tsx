@@ -178,11 +178,24 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span className="text-sm">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-gray-400">
+                    Gulshan-2 Office
+                  </span>
                   Confidence Center (Building-2)
                   <br />
                   House# Kha-9, Flat# 15-E (Lift-15)
                   <br />
                   Shahjadpur, Gulshan-2
+                  <br />
+                  Dhaka-1212, Bangladesh
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-gray-400 mt-3">
+                    Middle Badda Office
+                  </span>
+                  Day Night Siraj Tower (Ground Floor)
+                  <br />
+                  House No: Ta-114, Middle Badda
+                  <br />
+                  Gulshan Badda Link Road
                   <br />
                   Dhaka-1212, Bangladesh
                 </span>

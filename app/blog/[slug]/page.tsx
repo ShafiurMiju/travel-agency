@@ -86,34 +86,34 @@ const blogData: { [key: string]: any } = {
       <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">Introduction</h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">As we enter 2026, the world of travel is more exciting than ever. Here are the top 10 destinations that should be on every traveler's bucket list this year.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">1. Dubai, UAE 🇦🇪</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">1. Dubai, UAE<img src="https://flagcdn.com/ae.svg" alt="UAE flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">Dubai continues to amaze with its futuristic skyline, luxury shopping, and world-class attractions. Don't miss the Burj Khalifa, Dubai Mall, and desert safari experiences.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Bangkok, Thailand 🇹🇭</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">2. Bangkok, Thailand<img src="https://flagcdn.com/th.svg" alt="Thailand flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">The vibrant capital of Thailand offers incredible street food, ornate temples, and bustling markets. Perfect for both budget travelers and luxury seekers.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">3. Istanbul, Turkey 🇹🇷</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">3. Istanbul, Turkey<img src="https://flagcdn.com/tr.svg" alt="Turkey flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">Where East meets West, Istanbul captivates with its rich history, stunning architecture, and delicious cuisine. Explore the Blue Mosque, Hagia Sophia, and Grand Bazaar.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">4. Bali, Indonesia 🇮🇩</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">4. Bali, Indonesia<img src="https://flagcdn.com/id.svg" alt="Indonesia flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">Paradise on Earth! Bali offers pristine beaches, rice terraces, ancient temples, and world-class surfing. Perfect for honeymooners and adventure seekers alike.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">5. Singapore 🇸🇬</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">5. Singapore<img src="https://flagcdn.com/sg.svg" alt="Singapore flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">A modern marvel with its futuristic architecture, Gardens by the Bay, and incredible food scene. Great for families and first-time travelers to Asia.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">6. Maldives 🇲🇻</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">6. Maldives<img src="https://flagcdn.com/mv.svg" alt="Maldives flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">The ultimate tropical paradise with crystal-clear waters, overwater villas, and pristine coral reefs. Ideal for romantic getaways and scuba diving enthusiasts.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">7. Kuala Lumpur, Malaysia 🇲🇾</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">7. Kuala Lumpur, Malaysia<img src="https://flagcdn.com/my.svg" alt="Malaysia flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">An affordable destination offering the iconic Petronas Towers, diverse cuisine, and easy access to nearby islands and highlands.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">8. London, UK 🇬🇧</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">8. London, UK<img src="https://flagcdn.com/gb.svg" alt="UK flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">A timeless classic offering world-class museums, historical landmarks, and diverse cultural experiences. Perfect for history buffs and culture lovers.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">9. Kathmandu, Nepal 🇳🇵</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">9. Kathmandu, Nepal<img src="https://flagcdn.com/np.svg" alt="Nepal flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">Gateway to the Himalayas, offering ancient temples, mountain vistas, and trekking adventures. Budget-friendly and spiritually enriching.</p>
       
-      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">10. Paris, France 🇫🇷</h2>
+      <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">10. Paris, France<img src="https://flagcdn.com/fr.svg" alt="France flag" style="display: inline-block; width: 1.6em; height: 1.15em; object-fit: cover; vertical-align: -0.15em; margin-left: 0.4rem; border-radius: 2px;" /></h2>
       <p style="color: #374151; font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">The City of Love never goes out of style. Experience the Eiffel Tower, Louvre Museum, and world-renowned French cuisine.</p>
       
       <h2 style="color: #1e40af; font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">Planning Your Trip</h2>
@@ -123,7 +123,7 @@ const blogData: { [key: string]: any } = {
   "schengen-visa-tips-bangladeshi": {
     title: "Schengen Visa Tips for Bangladeshi Travelers",
     excerpt: "Complete guide to applying for Schengen visa. Learn about requirements, interview tips, and common mistakes to avoid.",
-    image: "🇪🇺",
+    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&h=800&fit=crop",
     author: "Visa Consultant",
     date: "December 20, 2025",
     readTime: "10 min read",

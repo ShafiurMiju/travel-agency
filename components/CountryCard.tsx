@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import Flag from "@/components/Flag";
 
 interface CountryCardProps {
   name: string;
@@ -45,7 +46,7 @@ const CountryCard = ({
         </div>
       )}
 
-      {/* Flag Emoji/Code */}
+      {/* Country image with flag */}
       <div className="relative h-48 overflow-hidden">
         <img 
           src={countryImages[code.toUpperCase()] || `https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop`}
@@ -54,7 +55,7 @@ const CountryCard = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         <div className="absolute bottom-4 left-4 right-4">
-          <div className="text-4xl mb-1">{getFlagEmoji(code)}</div>
+          <Flag code={code} alt={`${name} flag`} className="w-12 h-9 mb-2 rounded-sm shadow-sm ring-1 ring-white/40" />
           <h3 className="font-bold text-xl text-white drop-shadow-lg">{name}</h3>
         </div>
       </div>
@@ -100,12 +101,5 @@ const CountryCard = ({
 };
 
 // Helper function to get flag emoji from country code
-function getFlagEmoji(countryCode: string): string {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
-}
 
 export default CountryCard;

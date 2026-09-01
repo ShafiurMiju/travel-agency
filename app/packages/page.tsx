@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Flag from "@/components/Flag";
 import {
   Plane,
   Hotel,
@@ -195,12 +196,12 @@ export default function Packages() {
   ];
 
   const popularDestinations = [
-    { name: "Dubai", flag: "🇦🇪", packages: 12 },
-    { name: "Thailand", flag: "🇹🇭", packages: 15 },
-    { name: "Malaysia", flag: "🇲🇾", packages: 10 },
-    { name: "Singapore", flag: "🇸🇬", packages: 8 },
-    { name: "Maldives", flag: "🇲🇻", packages: 6 },
-    { name: "Turkey", flag: "🇹🇷", packages: 9 },
+    { name: "Dubai", code: "ae", packages: 12 },
+    { name: "Thailand", code: "th", packages: 15 },
+    { name: "Malaysia", code: "my", packages: 10 },
+    { name: "Singapore", code: "sg", packages: 8 },
+    { name: "Maldives", code: "mv", packages: 6 },
+    { name: "Turkey", code: "tr", packages: 9 },
   ];
 
   return (
@@ -262,7 +263,7 @@ export default function Packages() {
                 className="px-6 py-3 bg-gray-100 hover:bg-primary-50 border border-gray-200 hover:border-primary-300 rounded-lg transition-all group"
               >
                 <div className="flex items-center space-x-2">
-                  <span className="text-2xl">{dest.flag}</span>
+                  <Flag code={dest.code} alt={`${dest.name} flag`} className="w-9 h-7 rounded-sm shadow-sm ring-1 ring-black/10" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900 group-hover:text-primary-700">
                       {dest.name}

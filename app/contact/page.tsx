@@ -154,12 +154,27 @@ export default function Contact() {
                     <h3 className="font-semibold text-gray-900 mb-1">
                       Address
                     </h3>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mt-2">
+                      Gulshan-2 Office
+                    </p>
                     <p className="text-gray-600">
                       Confidence Center (Building-2)
                       <br />
                       House# Kha-9, Flat# 15-E (Lift-15)
                       <br />
                       Shahjadpur, Gulshan-2
+                      <br />
+                      Dhaka-1212, Bangladesh
+                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mt-4">
+                      Middle Badda Office
+                    </p>
+                    <p className="text-gray-600">
+                      Day Night Siraj Tower (Ground Floor)
+                      <br />
+                      House No: Ta-114, Middle Badda
+                      <br />
+                      Gulshan Badda Link Road
                       <br />
                       Dhaka-1212, Bangladesh
                     </p>
@@ -391,21 +406,45 @@ export default function Contact() {
               Visit Our Office
             </h2>
             <p className="text-xl text-gray-600">
-              Stop by for a consultation or document submission
+              Stop by either office for a consultation or document submission
             </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-lg h-[500px]">
-            <iframe
-              src="https://www.google.com/maps?q=Confidence%20Center%2C%20House%20Kha-9%2C%20Shahjadpur%2C%20Gulshan-2%2C%20Dhaka-1212%2C%20Bangladesh&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Tripbirds Travels Office Location"
-            ></iframe>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Gulshan-2 Office
+              </h3>
+              <div className="rounded-2xl overflow-hidden shadow-lg h-[400px]">
+                <iframe
+                  src="https://www.google.com/maps?q=Confidence%20Center%2C%20House%20Kha-9%2C%20Shahjadpur%2C%20Gulshan-2%2C%20Dhaka-1212%2C%20Bangladesh&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Tripbirds Travels Gulshan-2 Office Location"
+                ></iframe>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Middle Badda Office
+              </h3>
+              <div className="rounded-2xl overflow-hidden shadow-lg h-[400px]">
+                <iframe
+                  src="https://www.google.com/maps?q=Day%20Night%20Siraj%20Tower%2C%20House%20Ta-114%2C%20Middle%20Badda%2C%20Gulshan%20Badda%20Link%20Road%2C%20Dhaka-1212%2C%20Bangladesh&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Tripbirds Travels Middle Badda Office Location"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>

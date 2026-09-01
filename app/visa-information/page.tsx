@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Search, Globe, FileText, Clock, DollarSign } from "lucide-react";
+import Flag from "@/components/Flag";
 
 export const metadata: Metadata = {
   title: "Visa Information | Complete Guide for All Countries | Tripbirds Travels",
@@ -90,11 +91,22 @@ export default function VisaInformationPage() {
               <Link
                 key={country.code}
                 href={`/country/${country.code}`}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 group"
+                className="relative overflow-hidden bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-300 hover:-translate-y-1 group"
               >
-                <div className="flex items-start justify-between mb-4">
+                {/* Flag watermark: sits on the right and fades out to the left so it
+                    never washes out the text, which is anchored on the left.
+                    Deliberately static - only the card itself reacts to hover. */}
+                <div className="absolute inset-y-0 right-0 w-3/5 overflow-hidden pointer-events-none">
+                  <Flag
+                    code={country.code}
+                    alt=""
+                    className="w-full h-full opacity-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-l from-white/45 via-white/75 to-white"></div>
+                </div>
+
+                <div className="relative flex items-start justify-between mb-4">
                   <div>
-                    <div className="text-4xl mb-2">{getFlagEmoji(country.code.toUpperCase())}</div>
                     <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
                       {country.name}
                     </h3>
@@ -113,7 +125,7 @@ export default function VisaInformationPage() {
                   </div>
                 </div>
 
-                <div className="space-y-2 text-sm">
+                <div className="relative space-y-2 text-sm">
                   <div className="flex items-center text-gray-600">
                     <Clock className="h-4 w-4 mr-2 text-primary-600" />
                     <span><strong>Processing:</strong> {country.processing}</span>
@@ -152,12 +164,4 @@ export default function VisaInformationPage() {
       </section>
     </div>
   );
-}
-
-function getFlagEmoji(countryCode: string): string {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
 }

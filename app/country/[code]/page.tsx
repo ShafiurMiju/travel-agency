@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle, Clock, FileText, DollarSign, AlertCircle, Phone, MessageCircle } from "lucide-react";
 import BackButton from "@/components/BackButton";
+import Flag from "@/components/Flag";
 
 // Country data
 const countryData: Record<string, any> = {
@@ -161,7 +162,7 @@ const countryData: Record<string, any> = {
         type: "Business Visa (M)",
         description: "For trade fairs such as the Canton Fair, business meetings and negotiations",
         processingTime: "10+ working days",
-        validity: "Single entry",
+        validity: "As per embassy decision",
         fee: "From BDT 11,000"
       },
       {
@@ -238,7 +239,7 @@ const countryData: Record<string, any> = {
       "Interview may be required at the discretion of the visa center",
       "Business, student and work visa categories are also processed - call us for details",
       "Hotline: 01640-481621, 01603-898001 | ask.tripbirds@gmail.com",
-      "Office: Confidence Center (Building-2), House# Kha-9, Flat# 15-E (Lift-15), Shahjadpur, Gulshan-2, Dhaka-1212"
+      "Offices: Confidence Center (Building-2), House# Kha-9, Flat# 15-E (Lift-15), Shahjadpur, Gulshan-2, Dhaka-1212 | Day Night Siraj Tower (Ground Floor), House No: Ta-114, Middle Badda, Gulshan Badda Link Road, Dhaka-1212"
     ]
   },
   hk: {
@@ -725,15 +726,30 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/85 to-accent-700/85"></div>
+
+          {/* Flag watermark: right-hand side, fading out to the left so it never
+              sits behind the headline. Static - nothing here reacts to hover. */}
+          <div className="hidden md:block absolute inset-y-0 right-0 w-3/4 overflow-hidden">
+            <Flag
+              code={country.code}
+              alt=""
+              className="w-full h-full opacity-75 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_38%,rgba(0,0,0,0.85)_75%,#000_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_38%,rgba(0,0,0,0.85)_75%,#000_100%)]"
+            />
+          </div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <BackButton className="inline-flex items-center text-white/80 hover:text-white text-sm font-medium mb-8 transition-colors" />
 
-          <div className="flex flex-col md:flex-row md:items-center md:gap-8">
-            <div className="text-7xl md:text-8xl mb-4 md:mb-0 leading-none">
-              {getFlagEmoji(country.code)}
+          <div className="flex flex-col">
+            {/* On mobile the watermark is hidden, so show a flag chip instead */}
+            <div className="mb-4 md:hidden">
+              <Flag
+                code={country.code}
+                alt={`${country.name} flag`}
+                className="w-24 h-16 rounded-lg shadow-lg ring-1 ring-white/30"
+              />
             </div>
             <div className="flex-1">
               <p className="text-white/70 text-sm font-semibold tracking-wide uppercase mb-2">
@@ -933,12 +949,4 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
       </section>
     </div>
   );
-}
-
-function getFlagEmoji(countryCode: string): string {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
 }
