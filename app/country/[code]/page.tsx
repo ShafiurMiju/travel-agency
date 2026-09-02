@@ -156,7 +156,7 @@ const countryData: Record<string, any> = {
         description: "For tourism, sightseeing and visiting friends or family in China. Issued as a sticker visa in your passport, in single, double or multiple entry form",
         processingTime: "10+ working days",
         validity: "Usually 3 months from date of issue",
-        fee: "From BDT 10,000"
+        fee: "From BDT 10,500"
       },
       {
         type: "Business Visa (M)",
@@ -179,14 +179,13 @@ const countryData: Record<string, any> = {
       groups: [
         {
           title: "Tourist Visa (L) - Package Price",
-          columns: ["Visa Category", "Applicant Profile", "Package Price"],
+          columns: ["Visa Category", "Eligibility", "Fee (BDT)"],
+          badges: ["Most Chosen", null, null, null],
           rows: [
-            ["3 Months Single Entry", "Previous China visits after 2024", "BDT 10,000"],
-            ["3 Months Single Entry", "Malaysia or first-world country visited", "BDT 11,000"],
-            ["3 Months Single Entry", "1-2 countries visited", "BDT 12,000"],
-            ["3 Months Single Entry", "Fresh passport, no travel history", "BDT 13,000"],
-            ["6 Months Double Entry", "Recent China visited after 2024", "BDT 12,000"],
-            ["1-2 Years Multiple Entry", "Two recent China visits after 2024, subject to eligibility", "BDT 18,000"]
+            ["Single Entry", "Applicants with prior travel to Thailand, Malaysia, Singapore or other sticker-visa countries.", "BDT 10,500"],
+            ["Double Entry", "Eligible applicants meeting embassy conditions.", "BDT 11,500"],
+            ["1 Year Multiple Entry", "Subject to embassy approval.", "BDT 14,500"],
+            ["2 Year Multiple Entry", "Subject to embassy approval.", "BDT 15,500"]
           ]
         },
         {
@@ -208,6 +207,7 @@ const countryData: Record<string, any> = {
       ],
       footnotes: [
         "Package prices include both our processing charge and the embassy visa fee.",
+        "Processing time is approximately 10 working days and may vary depending on embassy workload.",
         "Interview at the China Visa Application Centre may be required at the embassy's discretion.",
         "If the application is refused after the interview, BDT 2,500 of the service charge is non-refundable; the balance is returned.",
         "Fees are revised by the embassy from time to time - call our hotline for today's rate."
@@ -870,6 +870,11 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
                                 }`}
                               >
                                 {cell}
+                                {cellIndex === 0 && group.badges?.[rowIndex] && (
+                                  <span className="ml-2 inline-block rounded-full bg-primary-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-primary-700 align-middle">
+                                    {group.badges[rowIndex]}
+                                  </span>
+                                )}
                               </td>
                             ))}
                           </tr>
