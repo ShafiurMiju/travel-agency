@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { Briefcase, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
+import { Briefcase, CheckCircle, Clock, FileText } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import DestinationGrid from "@/components/DestinationGrid";
+import { destinations } from "@/data/destinations";
 import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
@@ -72,24 +73,24 @@ export default function BusinessVisaPage() {
           <div className="space-y-6">
             {[
               {
-                title: "B-1 Business Visitor Visa",
-                description: "For attending meetings, conferences, and negotiations",
-                countries: "USA, Canada, UK, Australia"
+                title: "China Business Visa (M)",
+                description: "For business meetings, supplier visits and contract negotiations in China",
+                countries: "China - 3 months single entry, 10+ working days"
               },
               {
-                title: "Business Conference Visa",
-                description: "Specifically for attending trade shows and conferences",
-                countries: "Germany, France, UAE, Singapore"
+                title: "Trade Fair and Exhibition Visa",
+                description: "For the Canton Fair, Yiwu and other trade exhibitions",
+                countries: "China - processed under the M category"
               },
               {
                 title: "Multiple Entry Business Visa",
-                description: "For frequent business travelers with regular trips",
-                countries: "USA, UK, Schengen, China"
+                description: "For buyers and traders who travel repeatedly through the year",
+                countries: "China - 6 month double entry, or 1-2 year multiple entry subject to eligibility"
               },
               {
-                title: "Corporate Transfer Visa",
-                description: "For intra-company transfers and branch visits",
-                countries: "USA, UK, Canada, Australia"
+                title: "Business Visit Visa",
+                description: "For meetings, factory visits and sourcing trips across our other destinations",
+                countries: "India, Malaysia, Thailand, Singapore, Hong Kong, Indonesia"
               }
             ].map((type, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
@@ -132,26 +133,11 @@ export default function BusinessVisaPage() {
         </div>
       </section>
 
-      {/* Popular Destinations */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Business Destinations</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["USA", "UK", "Canada", "Australia", "Germany", "Singapore", "UAE", "China"].map((country) => (
-              <Link
-                key={country}
-                href="/visa-information"
-                className="bg-white p-6 rounded-xl text-center hover:shadow-lg transition-all border border-gray-200 group"
-              >
-                <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-                  {country}
-                </h3>
-                <ArrowRight className="h-4 w-4 mx-auto mt-2 text-primary-600 opacity-0 group-hover:opacity-100 transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DestinationGrid
+        title="Popular Business Destinations"
+        description="The destinations we process business and trade fair visas for - tap any country for its requirements, fees and processing time."
+        destinations={destinations}
+      />
 
       <CTASection />
     </div>

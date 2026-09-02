@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { GraduationCap, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
+import { GraduationCap, CheckCircle, Clock, FileText } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import DestinationGrid from "@/components/DestinationGrid";
+import { destinations } from "@/data/destinations";
 import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
@@ -68,12 +69,13 @@ export default function StudentVisaPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Study Visa Types</h2>
           <div className="space-y-6">
             {[
-              { title: "F-1 Student Visa (USA)", desc: "For full-time academic studies at accredited institutions" },
-              { title: "Tier 4 Student Visa (UK)", desc: "For degree courses at UK universities and colleges" },
-              { title: "Study Permit (Canada)", desc: "For studying at designated learning institutions" },
-              { title: "Subclass 500 (Australia)", desc: "For full-time study at Australian institutions" },
-              { title: "Student Visa (Schengen)", desc: "For studying in European countries" },
-              { title: "Student Pass (Singapore)", desc: "For full-time courses at approved institutions" }
+              { title: "China Student Visa (X1)", desc: "For degree programmes and other courses longer than 180 days, issued against the JW202 form and admission letter" },
+              { title: "China Student Visa (X2)", desc: "For short courses, exchange and training programmes of 180 days or less" },
+              { title: "Malaysia Student Pass", desc: "For full-time study at approved institutions, applied through EMGS before you travel" },
+              { title: "India Student Visa", desc: "For undergraduate, postgraduate and research programmes at recognised Indian institutions" },
+              { title: "Japan Student Visa", desc: "For Japanese language schools and universities, issued against a Certificate of Eligibility from your school" },
+              { title: "Singapore Student Pass", desc: "For full-time courses at approved institutions, registered with ICA before arrival" },
+              { title: "Egypt Student Visa", desc: "For Al-Azhar and other Egyptian universities, including scholarship admissions" }
             ].map((type, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{type.title}</h3>
@@ -91,9 +93,9 @@ export default function StudentVisaPage() {
             {[
               "Valid passport",
               "University admission letter",
-              "I-20/CAS/LOA (as applicable)",
+              "Admission form for the destination - JW202 for China, Certificate of Eligibility for Japan, EMGS approval for Malaysia",
               "Academic transcripts",
-              "Language proficiency test results (IELTS/TOEFL)",
+              "Language proficiency results where the institution asks for them (IELTS, TOEFL or HSK)",
               "Financial proof/bank statements",
               "Sponsor documents",
               "Statement of Purpose (SOP)",
@@ -111,25 +113,11 @@ export default function StudentVisaPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Top Study Destinations</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["USA", "UK", "Canada", "Australia", "Germany", "New Zealand", "Singapore", "Ireland"].map((country) => (
-              <Link
-                key={country}
-                href="/visa-information"
-                className="bg-white p-6 rounded-xl text-center hover:shadow-lg transition-all border border-gray-200 group"
-              >
-                <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-                  {country}
-                </h3>
-                <ArrowRight className="h-4 w-4 mx-auto mt-2 text-primary-600 opacity-0 group-hover:opacity-100 transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DestinationGrid
+        title="Top Study Destinations"
+        description="The destinations we handle student visas for - tap any country for its requirements, fees and processing time."
+        destinations={destinations}
+      />
 
       <CTASection />
     </div>

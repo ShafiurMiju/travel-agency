@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { Palmtree, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
+import { Palmtree, CheckCircle, Clock, FileText } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import DestinationGrid from "@/components/DestinationGrid";
+import { destinationsFor } from "@/data/destinations";
 import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
@@ -111,25 +112,11 @@ export default function TourVisaPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Tourist Destinations</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Thailand", "UAE", "Singapore", "Turkey", "USA", "UK", "Australia", "Japan"].map((country) => (
-              <Link
-                key={country}
-                href="/visa-information"
-                className="bg-white p-6 rounded-xl text-center hover:shadow-lg transition-all border border-gray-200 group"
-              >
-                <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-                  {country}
-                </h3>
-                <ArrowRight className="h-4 w-4 mx-auto mt-2 text-primary-600 opacity-0 group-hover:opacity-100 transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DestinationGrid
+        title="Popular Tourist Destinations"
+        description="The destinations we process tourist and visit visas for - tap any country for its requirements, fees and processing time."
+        destinations={destinationsFor("tourist")}
+      />
 
       <CTASection />
     </div>
