@@ -11,6 +11,7 @@ import {
   Heart,
 } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "About Us - Your Trusted Travel Partner",
@@ -23,14 +24,7 @@ export default function About() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-900 via-primary-800 to-accent-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=600&fit=crop"
-            alt="About Us"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/80 to-accent-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-primary-900 via-primary-800 to-accent-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in">

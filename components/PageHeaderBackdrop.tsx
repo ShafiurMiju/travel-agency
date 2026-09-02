@@ -6,6 +6,8 @@ interface PageHeaderBackdropProps {
   gradient?: string;
   /** Show the dotted world map layer. Turn off for short headers. */
   showMap?: boolean;
+  /** Accent colour for the map's routes and pins. White suits most gradients. */
+  accentClassName?: string;
 }
 
 /**
@@ -16,6 +18,7 @@ interface PageHeaderBackdropProps {
 const PageHeaderBackdrop = ({
   gradient = "from-primary-900 via-primary-800 to-accent-700",
   showMap = true,
+  accentClassName = "text-white",
 }: PageHeaderBackdropProps) => {
   return (
     <div className="absolute inset-0" aria-hidden="true">
@@ -23,11 +26,11 @@ const PageHeaderBackdrop = ({
 
       {/* Aurora glows */}
       <div className="absolute -top-40 -left-24 h-[28rem] w-[28rem] rounded-full bg-white/10 blur-3xl animate-float" />
-      <div className="absolute -bottom-52 right-0 h-[30rem] w-[30rem] rounded-full bg-accent-400/20 blur-3xl animate-float animation-delay-300" />
+      <div className="absolute -bottom-52 right-0 h-[30rem] w-[30rem] rounded-full bg-white/[0.07] blur-3xl animate-float animation-delay-300" />
 
       {showMap && (
         <div className="absolute inset-0 opacity-60">
-          <WorldMapBackdrop />
+          <WorldMapBackdrop accentClassName={accentClassName} />
         </div>
       )}
 

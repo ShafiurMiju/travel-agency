@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { GraduationCap, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Student Visa Services | Tripbirds Travels",
@@ -12,14 +13,7 @@ export default function StudentVisaPage() {
   return (
     <div className="flex flex-col">
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=600&fit=crop"
-            alt="Student Education"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-800/80 to-indigo-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-purple-900 via-purple-800 to-indigo-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

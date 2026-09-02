@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Palmtree, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Tourist Visa Services | Tripbirds Travels",
@@ -12,14 +13,7 @@ export default function TourVisaPage() {
   return (
     <div className="flex flex-col">
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-green-900 via-teal-800 to-cyan-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=600&fit=crop"
-            alt="Tourist Travel"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/80 via-teal-800/80 to-cyan-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-green-900 via-teal-800 to-cyan-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

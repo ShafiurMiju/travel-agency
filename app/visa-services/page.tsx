@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import CountryCard from "@/components/CountryCard";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Visa Services - Tourist, Business & Medical Visa Processing",
@@ -96,14 +97,7 @@ export default function VisaServices() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=600&fit=crop"
-            alt="Visa Services"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/80 to-primary-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-primary-900 via-primary-800 to-primary-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">

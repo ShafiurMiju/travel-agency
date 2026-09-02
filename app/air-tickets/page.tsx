@@ -11,6 +11,7 @@ import {
   TrendingDown,
 } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Air Ticket Booking - Best Prices on International & Domestic Flights",
@@ -23,14 +24,7 @@ export default function AirTickets() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=600&fit=crop"
-            alt="Air Travel"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/80 to-blue-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-blue-900 via-blue-800 to-blue-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Plane className="h-20 w-20 text-white mx-auto mb-6 animate-fade-in" />

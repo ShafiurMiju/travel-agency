@@ -11,6 +11,7 @@ import {
   Award,
 } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Hotel Booking - Best Rates on Hotels Worldwide",
@@ -23,14 +24,7 @@ export default function Hotels() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop"
-            alt="Hotel Accommodation"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/80 via-indigo-800/80 to-indigo-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-indigo-900 via-indigo-800 to-indigo-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Hotel className="h-20 w-20 text-white mx-auto mb-6 animate-fade-in" />

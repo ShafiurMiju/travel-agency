@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Heart, CheckCircle, Clock, FileText, ArrowRight } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import PageHeaderBackdrop from "@/components/PageHeaderBackdrop";
 
 export const metadata: Metadata = {
   title: "Medical Visa Services | Tripbirds Travels",
@@ -13,14 +14,7 @@ export default function MedicalVisaPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-red-900 via-red-800 to-pink-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&h=600&fit=crop"
-            alt="Medical Healthcare"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900/80 via-red-800/80 to-pink-700/80"></div>
-        </div>
+        <PageHeaderBackdrop gradient="from-red-900 via-red-800 to-pink-700" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
