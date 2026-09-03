@@ -193,7 +193,7 @@ const countryData: Record<string, any> = {
           columns: ["Visa Category", "Eligibility", "Fee (BDT)"],
           badges: ["Most Chosen", null, null, null],
           rows: [
-            ["Single Entry", "Applicants with recent travel to China, Malaysia, Singapore or a first-world country.", "BDT 11,000"],
+            ["Single Entry", "Applicants with recent travel to China, Malaysia, Singapore or a first-world country.", "BDT 10,000"],
             ["Double Entry", "Eligible applicants meeting embassy conditions.", "BDT 12,000"],
             ["1 Year Multiple Entry", "Subject to embassy approval.", "BDT 15,000"],
             ["2 Year Multiple Entry", "Subject to embassy approval.", "BDT 16,000"]
