@@ -210,9 +210,8 @@ const countryData: Record<string, any> = {
       ],
       footnotes: [
         "Package prices include both our processing charge and the embassy visa fee.",
-        "Business Visa (M) for fresh passport holders with no travel history starts from BDT 13,000 for single entry.",
         "Processing time is approximately 10 working days and may vary depending on embassy workload.",
-        "Interview at the China Visa Application Centre may be required at the embassy's discretion.",
+        "Interview at the China Embassy Visa Application Centre may be required at the embassy's discretion.",
         "If the application is refused after the interview, BDT 2,500 of the service charge is non-refundable; the balance is returned.",
         "Fees are revised by the embassy from time to time - call our hotline for today's rate."
       ]
