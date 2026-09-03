@@ -216,14 +216,15 @@ const countryData: Record<string, any> = {
         "Fees are revised by the embassy from time to time - call our hotline for today's rate."
       ]
     },
+    requirementsLabel: "L Tourist Visa",
     requirements: [
       "Original passport with minimum 7 months validity, plus all previous passports",
       "Bank solvency certificate and bank statement of the last 6 months, with a last balance of minimum 3,00,000 Taka (per person)",
       "Two recent photos (33 x 48 size, white background)",
       "National ID card copy",
-      "Confirmed air ticket - mandatory for a China visa application",
+      "Confirmed air ticket",
       "Updated trade license, incorporation documents, company pad and visiting card (business person)",
-      "NOC or salary certificate, last 6 months payslips, office ID and visiting card (job holder)",
+      "NOC or salary certificate",
       "Student ID card copy (student)",
       "Retirement certificate and pension documents (retired applicant)",
       "BMDC registration certificate (doctor)",
@@ -908,7 +909,9 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Required Documents</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                Required Documents{country.requirementsLabel ? ` (${country.requirementsLabel})` : ""}
+              </h2>
               <p className="text-gray-600">
                 Bring these {country.requirements.length} items to our office and we handle the rest of the application for you.
               </p>
@@ -928,23 +931,6 @@ export default async function CountryDetailsPage({ params }: { params: Promise<{
                   <span className="text-gray-700">{req}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Information */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Important Information</h2>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-            <div className="flex items-start">
-              <AlertCircle className="h-6 w-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-              <div className="space-y-3">
-                {country.additionalInfo.map((info: string, index: number) => (
-                  <p key={index} className="text-gray-700">• {info}</p>
-                ))}
-              </div>
             </div>
           </div>
         </div>
