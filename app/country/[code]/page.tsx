@@ -182,7 +182,7 @@ const countryData: Record<string, any> = {
           columns: ["Visa Category", "Eligibility", "Fee (BDT)"],
           badges: ["Most Chosen", null, null, null],
           rows: [
-            ["Single Entry", "Applicants with prior travel to Thailand, Malaysia, Singapore or other sticker-visa countries.", "BDT 10,500"],
+            ["Single Entry", "Applicants with prior travel to Thailand, Malaysia, Singapore or other sticker-visa countries.", "BDT 10,000"],
             ["Double Entry", "Eligible applicants meeting embassy conditions.", "BDT 11,500"],
             ["1 Year Multiple Entry", "Subject to embassy approval.", "BDT 14,500"],
             ["2 Year Multiple Entry", "Subject to embassy approval.", "BDT 15,500"]
@@ -190,10 +190,13 @@ const countryData: Record<string, any> = {
         },
         {
           title: "Business Visa (M) - Package Price",
-          columns: ["Applicant Profile", "Service Included", "Total Cost"],
+          columns: ["Visa Category", "Eligibility", "Fee (BDT)"],
+          badges: ["Most Chosen", null, null, null],
           rows: [
-            ["Recent travel to China, Malaysia, Singapore or a first-world country visited", "Processing charge + Embassy fee", "BDT 11,000"],
-            ["Fresh passport", "Processing charge + Embassy fee", "BDT 13,000"]
+            ["Single Entry", "Applicants with recent travel to China, Malaysia, Singapore or a first-world country.", "BDT 11,000"],
+            ["Double Entry", "Eligible applicants meeting embassy conditions.", "BDT 12,000"],
+            ["1 Year Multiple Entry", "Subject to embassy approval.", "BDT 15,000"],
+            ["2 Year Multiple Entry", "Subject to embassy approval.", "BDT 16,000"]
           ]
         },
         {
@@ -207,6 +210,7 @@ const countryData: Record<string, any> = {
       ],
       footnotes: [
         "Package prices include both our processing charge and the embassy visa fee.",
+        "Business Visa (M) for fresh passport holders with no travel history starts from BDT 13,000 for single entry.",
         "Processing time is approximately 10 working days and may vary depending on embassy workload.",
         "Interview at the China Visa Application Centre may be required at the embassy's discretion.",
         "If the application is refused after the interview, BDT 2,500 of the service charge is non-refundable; the balance is returned.",
