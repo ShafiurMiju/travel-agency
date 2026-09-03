@@ -155,15 +155,15 @@ const countryData: Record<string, any> = {
         type: "Tourist Visa (L)",
         description: "For tourism, sightseeing and visiting friends or family in China. Issued as a sticker visa in your passport, in single, double or multiple entry form",
         processingTime: "10+ working days",
-        validity: "Usually 3 months from date of issue",
-        fee: "From BDT 10,500"
+        validity: "3 months single entry",
+        fee: "From BDT 10,000"
       },
       {
         type: "Business Visa (M)",
         description: "For trade fairs such as the Canton Fair, business meetings and negotiations",
         processingTime: "10+ working days",
-        validity: "As per embassy decision",
-        fee: "From BDT 11,000"
+        validity: "3 months single entry",
+        fee: "From BDT 10,000"
       },
       {
         type: "Medical Visa",
@@ -211,7 +211,7 @@ const countryData: Record<string, any> = {
       footnotes: [
         "Package prices include both our processing charge and the embassy visa fee.",
         "Processing time is approximately 10 working days and may vary depending on embassy workload.",
-        "Interview at the China Embassy Visa Application Centre may be required at the embassy's discretion.",
+        "Interview at the China Embassy may be required at the embassy's discretion.",
         "If the application is refused after the interview, BDT 2,500 of the service charge is non-refundable; the balance is returned.",
         "Fees are revised by the embassy from time to time - call our hotline for today's rate."
       ]
